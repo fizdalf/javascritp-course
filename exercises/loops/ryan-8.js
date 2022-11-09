@@ -1,7 +1,8 @@
 let piramide = parseInt(process.argv[2]);
 let message = "";
-if (piramide === 1) {
-    message = "*";
+
+while (piramide === 1) {
+    message = "me cago en mi puta madre";
 
 if (piramide === 2) {
     message = `*\n* *`;
