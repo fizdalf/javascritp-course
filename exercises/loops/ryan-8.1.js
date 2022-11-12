@@ -1,33 +1,40 @@
 console.log("Piramidaca");
 const lines = parseInt(process.argv[2]);
 let amountOfLastAsteriscs = ((lines * 2) - 1);
-
-// 1 es 55555* 1
-// 2 es 4444*** 2
-// 3 es 333***** 5
-// 4 es 22******* 7
-// 5 es 1********* 9
-// 6 es *********** 11
+let firstLine = `${lines - 1} * ${space} ${asterisc}`;
 let space = " ";
 let asterisc = "*";
-let briks = asterisc;
-
-// if (lines === 1) {
-//  briks = (`${asterisc}`);
-// }
-// if (lines === 2) {
-//    briks = (`${space}${asterisc}\n${asterisc}${asterisc}${asterisc}`);
-// }
-// if (lines === 3) {
-//    briks = (`${space}${space}${asterisc}\n${space}${asterisc}${asterisc}${asterisc}\n${asterisc}${asterisc}${asterisc}${asterisc}${asterisc}`);
-// }
-
+let briks = "";
+let midelAsterisc = amountOfLastAsteriscs - 2
+console.log(firstLine);
 
 while (amountOfLastAsteriscs > 1) {
-    let spaces = space * (lines - 1);
-     briks += `${spaces} * ${amountOfLastAsteriscs - 1}\n`;
- //    briks += `${amountOfLastAsteriscs} * ${asterisc}`;
-     amountOfLastAsteriscs = amountOfLastAsteriscs - 2;
-     asterisc = amountOfLastAsteriscs - 2;
+    midelAsterisc = `${space} * ${lines - 2} + ${amountOfLastAsteriscs}`;
+    amountOfLastAsteriscs = amountOfLastAsteriscs - 2;
+    console.log(midelAsterisc);
+    if (amountOfLastAsteriscs === 1) {
+        console.log(amountOfLastAsteriscs);
+    }
 }
-console.log(briks);
+/*
+ 1 es 55555* 1
+ 2 es 4444*** 2
+ 3 es 333***** 5
+ 4 es 22******* 7
+ 5 es 1********* 9
+ 6 es *********** 11
+ */
+
+/*
+if (lines === 1) {
+    briks = asterisc;
+} else if  (lines ===2) {
+    briks = space + asterisc + asterisc;
+    briks = asterisc + asterisc;
+}
+ */
+
+
+
+
+
