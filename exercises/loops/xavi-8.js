@@ -1,22 +1,28 @@
 const height = parseInt(process.argv[2]);
-const amountOfCharacters = (height * 2) - 1;
-const initialAmountOfSpaces = height - 1;
-if (height === 1) {
-    let result = "*";
-    console.log(result);
+const LINE_FEED = '\n';
+
+function spaces(height, currentLevel) {
+    return repeatCharacters(height - currentLevel, ' ');
 }
 
-if (height === 2) {
-    let result = "";
-    let firstString = " * \n";
-    let secondString = "***";
-    result += firstString + secondString;
-    console.log(result);
+function asterisks(level) {
+    return repeatCharacters((level * 2) - 1, '*');
 }
 
-if (height === 3) {
-    console.log('  *  \n *** \n*****');
+function repeatCharacters(amount, characterToUse) {
+    let result = '';
+    for (let i = 0; i < amount; i++) {
+        result += characterToUse;
+    }
+    return result;
 }
-if (height === 4) {
-    console.log('   *   \n  ***  \n ***** \n*******');
+
+let result = "";
+for (let currentLevel = 1; currentLevel <= height; currentLevel++) {
+    let calculatedSpaces = spaces(height, currentLevel);
+    let line = calculatedSpaces + asterisks(currentLevel) + calculatedSpaces;
+    result += line + LINE_FEED;
 }
+console.log(result);
+
+

@@ -6,7 +6,7 @@ let firstAsterisc = 1;
 let message1 = "";
 let message2 = "";
 let message3 = "";
-let levelsMessage1 = `${levels - 1}`;
+let levelsMessage1 = levels - 1;
 
 while (levelsMessage1 >= number) {
     message1 = space;
