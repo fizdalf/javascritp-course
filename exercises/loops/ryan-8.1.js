@@ -1,40 +1,23 @@
-console.log("Piramidaca");
-const lines = parseInt(process.argv[2]);
-let amountOfLastAsteriscs = ((lines * 2) - 1);
-let firstLine = `${lines - 1} * ${space} ${asterisc}`;
-let space = " ";
-let asterisc = "*";
-let briks = "";
-let midelAsterisc = amountOfLastAsteriscs - 2
-console.log(firstLine);
+let levels = parseInt(process.argv[2]);
+let lastLevelAsteriscs = (levels * 2) - 1;
+let asterisc = `*`;
+let space = ` `;
+let number = 1;
+let firstAsterisc = 1;
+let message1 = "";
+let message2 = "";
+let message3 = "";
 
-while (amountOfLastAsteriscs > 1) {
-    midelAsterisc = `${space} * ${lines - 2} + ${amountOfLastAsteriscs}`;
-    amountOfLastAsteriscs = amountOfLastAsteriscs - 2;
-    console.log(midelAsterisc);
-    if (amountOfLastAsteriscs === 1) {
-        console.log(amountOfLastAsteriscs);
-    }
+while (lastLevelAsterisc >= number) {
+    message1 = `${space * (levels - 1)}`;
+    message2 = `${asterisc * firstAsterisc}`;
+    message3 = `${space * (levels -1)}`;
+
+    console.log(message1+message2+message3);
+
+    firstAsterisc = + 2;
+    lastLevelAsteriscs = lastLevelAsteriscs - 1;
 }
-/*
- 1 es 55555* 1
- 2 es 4444*** 2
- 3 es 333***** 5
- 4 es 22******* 7
- 5 es 1********* 9
- 6 es *********** 11
- */
-
-/*
-if (lines === 1) {
-    briks = asterisc;
-} else if  (lines ===2) {
-    briks = space + asterisc + asterisc;
-    briks = asterisc + asterisc;
-}
- */
-
-
-
+console.log("Fin de la Piramidaca");
 
 
