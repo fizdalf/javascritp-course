@@ -111,13 +111,3 @@ console.log(age);
 // consist of 3 positive integers above 0, representing the dimensions of cuboids a and b. You must find the
 // difference of the cuboids' volumes regardless of which is bigger.
 //
-// For example, if the parameters passed are ([2, 2, 3], [5, 4, 1]), the volume of a is 12 and the volume of b is 20.
-// Therefore, the function should return 8.
-let a = [2, 2, 3];
-let b = [5, 4, 1];
-function difference (a,b) {
-    let totaly = y.reduce((a,b,c) => Number(a) + Number(b) + Number(c), 0);
-    let totalz = z.reduce((a,b,c) => Number(a) + Number(b) + Number(c), 0);
-    return totaly - totalz;
-}
-console.log(difference);
