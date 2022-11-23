@@ -3,3 +3,4 @@ function comparador(a, b) {
     b = [3, 2, 1];
    return console.log(a % b);
 }
+comparador
