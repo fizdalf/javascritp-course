@@ -103,6 +103,7 @@ var x = "";
 function age () {
     var x = rand(x) % 10; // Genera un valor entre 0 y 9
     return `${x} years old`;
+    return `no pude hacer una mierda`;
 }
 console.log(age);
 
