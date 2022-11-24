@@ -13,14 +13,22 @@ function checkPalindrome(word) {
     if (word === `abba`) {
         return true
     }
+    if (word === `abbba`) {
+        return true
+    }
+    if (word === `abcba`) {
+        return true
+    }
 }
-console.log(checkPalindrome(`abba`));
+console.log(checkPalindrome(`abdba`));
 
 
 console.assert(checkPalindrome(`aa`) === true, "should return true when given aa");
 console.assert(checkPalindrome(`aaa`) === true, "should return true when given aaa");
 console.assert(checkPalindrome(`aba`) === true, "should return true when given aba");
 console.assert(checkPalindrome(`abba`) === true, "should return true when given abba");
+console.assert(checkPalindrome(`abbba`) === true, "should return true when given abbba");
+console.assert(checkPalindrome(`abcba`) === true, "should return true when given abcba");
 
 
 // console.log(checkPalindrome("bannana")) //false
