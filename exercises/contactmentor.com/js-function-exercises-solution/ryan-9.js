@@ -35,18 +35,6 @@ console.assert(checkPalindrome(`abba`) === "true", "should return true when give
 console.assert(checkPalindrome(`abbba`) === "true", "should return true when given abbba");
 console.assert(checkPalindrome(`abcba`) === "true", "should return true when given abcba");
 
-function checkaPalindrome(str) {
-    for(var i=0;i<str.length;i++){
-        if(str.charAt(i)!=str.charAt(str.length-i-1)){ // Comparison fail
-            return false;
-        }
-    }
-    return true;
-}
-
-console.log(checkaPalindrome("bannana")) //false
-console.log(checkaPalindrome("racecar")) //true
-console.log(checkaPalindrome("madam")) //true
 
 // console.log(checkPalindrome("bannana")) //false
 // console.log(findPalindrome("racecar")) //true
