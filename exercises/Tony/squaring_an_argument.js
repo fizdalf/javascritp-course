@@ -1,8 +1,10 @@
 // Now you have to write a function that takes an argument and returns the square of it.
 
-let number = 3;
+let number = 8;
 
-new function () {
+function square () {
     return console.log(number**2);
 };
+
+square();
 

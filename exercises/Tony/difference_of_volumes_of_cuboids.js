@@ -14,4 +14,6 @@ If you can, try writing it in one line of code.
 let a = [2,2,7];
 let b = [5,4,2];
 
-new function () {return console.log(Math.abs(a[0]*a[1]*a[2] - b[0]*b[1]*b[2]));};
+function resta_cubos () {return console.log(Math.abs(a[0]*a[1]*a[2] - b[0]*b[1]*b[2]));};
+
+resta_cubos();

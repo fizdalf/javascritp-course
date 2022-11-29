@@ -9,8 +9,10 @@ The first character in the string is always a number.
 
 let girl_age = "4 years old";
 
-new function () {
+function ageNumber () {
     let years_old = girl_age.split("");
-    return console.log (years_old[0]);
+    return console.log (parseInt(years_old[0])); //sin el parseInt devuelve el valor 4 pero como texto, no como número.
 };
+
+ageNumber();
 

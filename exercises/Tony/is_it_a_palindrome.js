@@ -3,7 +3,7 @@
 
 let frase = "sometemos";
 
-new function palindrome (){
+function palindrome (){
 
     let fraseArray = frase.split("");
     let frase_al_revesArray = fraseArray.reverse();
@@ -16,4 +16,6 @@ new function palindrome (){
         return console.log("La palabra " + frase + " no es un palindrome.")
     }
 };
+
+palindrome();
 
