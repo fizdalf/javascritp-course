@@ -16,7 +16,7 @@ Your mission is to implement a function that converts the following potentially 
 
 let palabra = ">tony&";
 
-new function () {
+function comprobar_caracteres() {
     let parabraArray = palabra.split("");
     for (let i = 0; i<palabraArray.length; i++){
         switch (palabraArray[i]) {
@@ -40,3 +40,5 @@ new function () {
     let palabra = palabraArray.join("");
     return palabra;
 };
+
+comprobar_caracteres();
