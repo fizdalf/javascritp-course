@@ -1,5 +1,3 @@
- function saluda (){
-    return console.log("Hello World");
-};
+ function saluda (nombre){return console.log(`Hello ${nombre}!`);}
 
-saluda();
+saluda("Brumhilda");
