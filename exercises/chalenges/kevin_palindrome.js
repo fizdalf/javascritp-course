@@ -1,17 +1,19 @@
-function palindrome(userWord) {
+
+
+function palindrome() {
     let palabra = 0;
-    let final = userWorld.length - 1;
+    let userWord= "lossol";
+    let final = userWord.length - 1;
 
     while (palabra < userWord.length) {
-        if (userWord[palabra] === final) {
+        if (userWord[palabra] === userWord[final]) {
             palabra++;
             final--;
+            return console.log("ok");
         }
-        return true;
+        return console.log("ok");
     }
-    return false;
-
-
+    return console.log("Mal");
 }
 
 
