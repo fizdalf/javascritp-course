@@ -9,7 +9,7 @@ The first character in the string is always a number.
 
 function ageNumber (girl_age) {
     // let years_old = girl_age.split("");
-    console.log("Edad:") // No consigo concatenar el texto con el número de la edad, sin que este se vuelva string.
+    console.log("Edad:", 3) // No consigo concatenar el texto con el número de la edad, sin que este se vuelva string.
     return console.log (parseInt(girl_age.split("")[0]));
     //sin el parseInt devuelve el valor 4 pero como texto, no como número.
 }

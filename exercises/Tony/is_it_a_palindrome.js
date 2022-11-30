@@ -5,15 +5,13 @@
 // let frase_al_revesArray = fraseArray.reverse();
 // let frase_al_reves = frase_al_revesArray.join("");
 
-function palindrome (frase){
-    let frase_al_reves = frase.split("").reverse().join("");
-    if (frase.toLowerCase() === frase_al_reves.toLowerCase()){
-        return console.log(`La palabra ${frase} es un palindrome.`);
-    }
-    else {
-        return console.log(`La palabra ${frase} no es un palindrome.`);
-    }
+function palindrome(word) {
+    let wordInLowerCase = word.toLowerCase();
+    let reversedWord = wordInLowerCase.split("").reverse().join("");
+    return wordInLowerCase === reversedWord;
 }
 
-palindrome("SoMeTemOs");
+let word = "SoMeTemOsa";
+console.log(`La palabra ${word} ${palindrome(word) ? '' : 'no '}es un palindrome.`);
+
 
