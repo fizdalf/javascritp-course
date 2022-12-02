@@ -7,12 +7,12 @@ Assume the test input string is always a valid string. For example, the test inp
 The first character in the string is always a number.
 */
 
-let girl_age = "4 years old";
+function ageNumber (girl_age) {
+    // let years_old = girl_age.split("");
+    console.log("Edad:", 3) // No consigo concatenar el texto con el número de la edad, sin que este se vuelva string.
+    return console.log (parseInt(girl_age.split("")[0]));
+    //sin el parseInt devuelve el valor 4 pero como texto, no como número.
+}
 
-function ageNumber () {
-    let years_old = girl_age.split("");
-    return console.log (parseInt(years_old[0])); //sin el parseInt devuelve el valor 4 pero como texto, no como número.
-};
-
-ageNumber();
+ageNumber("9 years old");
 

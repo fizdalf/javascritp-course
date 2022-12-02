@@ -14,31 +14,26 @@ Your mission is to implement a function that converts the following potentially 
     & --> &amp;
  */
 
-let palabra = ">tony&";
+function comprobar_caracteres(word) {
+    return word
+        .split("")
+        .map((character) => replaceCharacter(character))
+        .join("");
+}
 
-function comprobar_caracteres() {
-    let parabraArray = palabra.split("");
-    for (let i = 0; i<palabraArray.length; i++){
-        switch (palabraArray[i]) {
-            case "<":
-                palabraArray[i] = "&lt";
-                break;
-            case ">":
-                palabraArray[i] = "&gt";
-                break;
-            case '"':
-                palabraArray[i] = "&quot";
-                break;
-            case "&":
-                palabraArray[i] = "&amp";
-                break;
-        }
-        ;
+function replaceCharacter(char) {
+    switch (char) {
+        case "<":
+            return "&lt"
+        case ">":
+            return "&gt";
+        case '"':
+            return "&quot";
+        case "&":
+            return "&amp";
+        default:
+            return char;
     }
-    ;
+}
 
-    let palabra = palabraArray.join("");
-    return palabra;
-};
-
-comprobar_caracteres();
+console.log(comprobar_caracteres(">tony&"));
