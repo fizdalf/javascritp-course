@@ -1,6 +1,6 @@
 // Now you have to write a function that takes an argument and returns the square of it.
 
-function square (num) {return console.log(`El cuadrado de ${num} es ${num**2}.`);}
+function square (num) {return num**2}
 
-square(8);
+console.log(`El cuadrado de 8 es ${square(8)}.`);
 

@@ -11,7 +11,7 @@ Your function will be tested with pre-made examples as well as random ones.
 If you can, try writing it in one line of code.
  */
 
-function resta_cubos (a,b) {return console.log(`La diferencia entre cubos es ${Math.abs(a[0]*a[1]*a[2] - b[0]*b[1]*b[2])}`);}
+function resta_cubos (a,b) {return Math.abs(a[0]*a[1]*a[2] - b[0]*b[1]*b[2])}
 
-resta_cubos([2,2,7], [5,4,2]);
-resta_cubos([2,2,2], [3,3,3]);
+console.assert(resta_cubos([2,2,7], [5,4,2]) , "Error");
+console.assert(resta_cubos([2,2,2], [3,3,3]) , "Error");

@@ -14,31 +14,36 @@ Your mission is to implement a function that converts the following potentially 
     & --> &amp;
  */
 
-let palabra = ">tony&";
-
-function comprobar_caracteres() {
-    let parabraArray = palabra.split("");
+function comprobar_caracteres(word) {
+    let palabra = word;
+    let palabraArray = palabra.split("");
     for (let i = 0; i<palabraArray.length; i++){
         switch (palabraArray[i]) {
             case "<":
-                palabraArray[i] = "&lt";
+                palabraArray[i] = "&lt;";
                 break;
             case ">":
-                palabraArray[i] = "&gt";
+                palabraArray[i] = "&gt;";
                 break;
             case '"':
-                palabraArray[i] = "&quot";
+                palabraArray[i] = "&quot;";
                 break;
             case "&":
-                palabraArray[i] = "&amp";
+                palabraArray[i] = "&amp;";
                 break;
         }
-        ;
     }
-    ;
-
-    let palabra = palabraArray.join("");
+    palabra = palabraArray.join("");
     return palabra;
-};
+}
 
-comprobar_caracteres();
+console.log(`${comprobar_caracteres("<h2>Hello World</h2>")}`);
+
+/* RESPUESTA PRO:
+function htmlspecialchars(formData) {
+  return formData.replace(/&/g, "&amp;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;");
+}
+ */
