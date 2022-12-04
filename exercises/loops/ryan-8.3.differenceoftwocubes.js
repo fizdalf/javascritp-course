@@ -1,16 +1,29 @@
+let y = [2, 2, 3];
+let z = [5, 4, 1];
 
+function cuboidsDifference(y, z) {
+    let totalY = calculateVolume(y);
+    let totalZ = calculateVolume(z)
+    return absoluteValue(totalY - totalZ);
+}
 
-let total = "";
-
-let y = ["2", "2", "3"];
-let totaly = y.reduce((a,b,c) => y(a) + y(b) + y(c), 0);
-let z = ["5", "4", "1"];
-let totalz = z.reduce((a,b,c) => z(a) + z(b) + z(c), 0);
-let total = totaly - totalz;
-
+const total = cuboidsDifference(y, z);
 console.log(total);
 
-let numbers = ["101", "3"];
-let total = numbers.reduce((a, b) => Number(a) + Number(b), 0);
+function calculateVolume(cuboid) {
+    return cuboid.reduce((previousValue, currentValue) => previousValue * currentValue, 1);
+}
 
-console.log(total);
+function absoluteValue(number) {
+    if (number < 0) {
+        return number * -1;
+    }
+    return number;
+}
+
+
+let accumulated = 1;
+let numbers = [1, 2, 3];
+for (let i = 0; i < numbers; i++) {
+    accumulated = accumulated * numbers[i];
+}
