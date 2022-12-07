@@ -15,25 +15,35 @@ Your mission is to implement a function that converts the following potentially 
  */
 
 function comprobar_caracteres(word) {
-    return word
-        .split("")
-        .map((character) => replaceCharacter(character))
-        .join("");
-}
-
-function replaceCharacter(char) {
-    switch (char) {
-        case "<":
-            return "&lt"
-        case ">":
-            return "&gt";
-        case '"':
-            return "&quot";
-        case "&":
-            return "&amp";
-        default:
-            return char;
+    let palabra = word;
+    let palabraArray = palabra.split("");
+    for (let i = 0; i<palabraArray.length; i++){
+        switch (palabraArray[i]) {
+            case "<":
+                palabraArray[i] = "&lt;";
+                break;
+            case ">":
+                palabraArray[i] = "&gt;";
+                break;
+            case '"':
+                palabraArray[i] = "&quot;";
+                break;
+            case "&":
+                palabraArray[i] = "&amp;";
+                break;
+        }
     }
+    palabra = palabraArray.join("");
+    return palabra;
 }
 
-console.log(comprobar_caracteres(">tony&"));
+console.log(`${comprobar_caracteres("<h2>Hello World</h2>")}`);
+
+/* RESPUESTA PRO:
+function htmlspecialchars(formData) {
+  return formData.replace(/&/g, "&amp;")
+                 .replace(/"/g, "&quot;")
+                 .replace(/</g, "&lt;")
+                 .replace(/>/g, "&gt;");
+}
+ */

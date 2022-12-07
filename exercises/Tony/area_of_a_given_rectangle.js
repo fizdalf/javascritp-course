@@ -1,5 +1,7 @@
-function area_rectangulo (a,b){return console.log (`El área del rectángulo cuyos lados miden ${a}cm y ${b}cm, es ${a*b}cm^2`);}
+function area_rectangulo (a,b){return a*b}
 
-area_rectangulo(3,5);
-area_rectangulo(2,8);
-area_rectangulo(15,13);
+console.log (`El área del rectángulo cuyos lados miden 3cm y 5cm, es ${area_rectangulo(3,5)}cm^2`);
+console.log (`El área del rectángulo cuyos lados miden 13cm y 19cm, es ${area_rectangulo(13,19)}cm^2`);
+console.log (`El área del rectángulo cuyos lados miden 45cm y 52cm, es ${area_rectangulo(45,52)}cm^2`);
+
+console.assert(area_rectangulo(2,5) , "Expect 10");
