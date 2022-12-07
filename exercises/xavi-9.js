@@ -1,6 +1,5 @@
 //Write a function to find the count of a letter in a string
 
-
 function letterCount(a, b){
     let count = 0;
     for (const character of a) {
