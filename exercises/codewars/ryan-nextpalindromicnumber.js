@@ -8,10 +8,10 @@ function isAPalindromic(num) {
     return true;
 }
 let firstNum = process.argv[2];
-let testNum = firstNum;
+let num = firstNum;
 let theNum = "";
-function nexPal(firstNum) {
-    for (let i = testNum; i >= testNum; i++) {
+function nexPal(num) {
+    for (let i = num; i >= num; i++) {
         let testNum = + 1;
         if (isAPalindromic(testNum)) {
             let testNum = theNum;
