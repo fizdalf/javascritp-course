@@ -1,7 +1,7 @@
 
 
-function palindrome() {
-    let palabra = 0;
+function palindrome(palabra) {
+     palabra = sollos;
     let userWord= "lossol";
     let final = userWord.length - 1;
 
