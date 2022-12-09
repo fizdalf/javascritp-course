@@ -14,7 +14,7 @@
 // You will be receiving values higher than 10, all valid.
 
 function nextPal(val) {
-    let palindromicNumber = val + 1 ;
+    let palindromicNumber = val + 1;
     while (true) {
         if (isPalindrome(palindromicNumber)) {
             return palindromicNumber;
@@ -22,6 +22,7 @@ function nextPal(val) {
         palindromicNumber++;
     }
 }
+
 function isPalindrome(number) {
     const numberAsString = String(number);
     return numberAsString.split('').reverse().join('') === numberAsString;
