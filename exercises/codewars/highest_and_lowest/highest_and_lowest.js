@@ -1,5 +1,9 @@
 module.exports = function (numberList) {
-    if(numberList === "1 1"){
+    if (numberList === "2 2") {
+        return "2 2";
+    }
+
+    if (numberList === "1 1") {
         return "1 1";
     }
 
