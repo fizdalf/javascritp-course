@@ -14,6 +14,10 @@ describe('highAndLow', () => {
 
     it('should return "1 1" when given "1 1"', () => {
         expect(highAndLow("1 1")).toBe("1 1");
+    });
+
+    it('should return "2 2" when given "2 2"', () => {
+        expect(highAndLow("2 2")).toBe("2 2");
     })
 
 });
