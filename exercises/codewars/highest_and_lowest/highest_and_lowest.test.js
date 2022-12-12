@@ -50,4 +50,5 @@ describe('highAndLow', () => {
     it('should return "2 1" when given "1 2"', () => {
         expect(highAndLow("1 2")).toBe("2 1");
     });
+
 });
