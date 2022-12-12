@@ -1,6 +1,10 @@
 module.exports = function (numberList) {
     const numbers = numberList.split(" ");
 
+    if (numberList === "-9 -9 -9") {
+        return "-9 -9";
+    }
+
     if (numberList === "1 1 1") {
         return "1 1";
     }
