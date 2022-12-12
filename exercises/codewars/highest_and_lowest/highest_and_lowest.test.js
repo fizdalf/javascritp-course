@@ -46,4 +46,8 @@ describe('highAndLow', () => {
     it('should return "25 -90" when given "25 -90"', () => {
         expect(highAndLow("25 -90")).toBe("25 -90");
     });
+
+    it('should return "2 1" when given "1 2"', () => {
+        expect(highAndLow("1 2")).toBe("2 1");
+    });
 });
