@@ -8,4 +8,8 @@ describe('highAndLow', () => {
         expect(highAndLow("5")).toBe("5 5");
     });
 
+    it('should return "8 8" when given "8"', () => {
+        expect(highAndLow("8")).toBe("8 8");
+    });
+
 });
