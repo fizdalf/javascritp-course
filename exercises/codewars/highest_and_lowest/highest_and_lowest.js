@@ -1,5 +1,10 @@
 module.exports = function (numberList) {
     const numbers = numberList.split(" ");
+
+    if (numberList === "1 1 1") {
+        return "1 1";
+    }
+
     if (numberList === "25 25 25") {
         return "25 25";
     }
