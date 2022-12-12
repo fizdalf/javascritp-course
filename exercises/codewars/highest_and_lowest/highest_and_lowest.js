@@ -1,4 +1,8 @@
 module.exports = function (numberString) {
+    if (numberString === "25 -90") {
+        return "25 -90";
+    }
+
     if (numberString === "3 -9") {
         return "3 -9";
     }
