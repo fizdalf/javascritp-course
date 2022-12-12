@@ -18,6 +18,10 @@ describe('highAndLow', () => {
 
     it('should return "2 2" when given "2 2"', () => {
         expect(highAndLow("2 2")).toBe("2 2");
-    })
+    });
+
+    it('should return "25 25" when given "25 25"', () => {
+        expect(highAndLow("25 25")).toBe("25 25");
+    });
 
 });
