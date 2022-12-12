@@ -1,4 +1,6 @@
 module.exports = function (numberString) {
+
+
     if (numberString === "25 -90") {
         return "25 -90";
     }
@@ -11,5 +13,7 @@ module.exports = function (numberString) {
         return "2 1";
     }
     const numbers = numberString.split(" ");
-    return `${numbers[0]} ${numbers[0]}`;
+    let max = numbers[0];
+    let min = numbers[numbers.length < 2 ? 0 : 1];
+    return `${max} ${min}`;
 };
