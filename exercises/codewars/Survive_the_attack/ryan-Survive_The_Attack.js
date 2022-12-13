@@ -3,16 +3,18 @@
  //   or false if you perish.
  module.exports = surviveTheAttack();
 
- let attackers = [];
- let defenders = [];
-
- function surviveTheAttack () {
-          if ([], []) {
+ function surviveTheAttack (attackers, defenders) {
+     if (attackers === [1] | defenders === [1]) {
+         return false;
+     }
            return true;
-          }
+          };
 
- };
-
+ function initialAttackersPower () {
+         let total = 0;
+         for(let i = 0; i <= attackers.length; i++) total += attackers[i];
+         return;
+ }
 
  //   Each soldier attacks the opposing soldier in the same index of the array. The survivor is the number with the highest value.
  //   If the value is the same they both perish
