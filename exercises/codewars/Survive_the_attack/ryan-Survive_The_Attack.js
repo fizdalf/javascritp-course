@@ -1,7 +1,11 @@
 
  //   Given two Arrays in which values are the power of each soldier, return true if you survive the attack
  //   or false if you perish.
+function surviveTheAttack (val) {
 
+ };
+
+ module.exports = surviveTheAttack();
  //Each soldier attacks the opposing soldier in the same index of the array. The survivor is the number with the highest value.
  //   If the value is the same they both perish
  // If one of the values is empty(different array lengths) the non-empty value soldier survives.
