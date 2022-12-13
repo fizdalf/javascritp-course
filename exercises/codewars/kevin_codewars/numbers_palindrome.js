@@ -1,5 +1,5 @@
 function nextPal(val) {
-    val = toString(val).split(' ')
+    val = String(val).split(' ')
     let valReversed = toString(val).split(' ').reverse().join('');
     while (valReversed !== val) {
         val++;
