@@ -1,9 +1,8 @@
 const surviveTheAttack = require('./ryan-Survive_The_Attack');
+const highAndLow = require("../highest_and_lowest/highest_and_lowest");
 
 describe(`surviveTheAttack`, () => {
-    it.each([
-        {given: [], expected: true},
-    ])(`should return $expected when given $given`, ({given, expected}) => {
-        expect(nextPal(given)).toBe(expected);
-    })
+    it('should return "false" when given "[] []"', () => {
+        expect(surviveTheAttack("[] []")).toBe("false");
+    });
 })
