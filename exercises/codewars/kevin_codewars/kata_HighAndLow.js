@@ -1,8 +1,10 @@
-function highAndLow(numbers) {
-    numbers = toString(numbers).split(' ');
-    console.log(Math.max(Number(numbers)),
-            console.log(Math.min(Number(numbers));
+function highAndLow(numbers){
+ numbers.split(' ').map(parseInt(x));
+ Number(numbers)
+ console.log(Math.max(...numbers));
+ console.log(Math.min(...numbers));
+
 
 }
 
-highAndLow("10 5 6 -6 3");
+highAndLow('2 5 -7 8 2 222');
