@@ -24,5 +24,12 @@ describe('nextMovement', function () {
         let moves = 1;
         expect(nextMovement(board, player, line, moves)).toStrictEqual([[".", "x" , ".", "y"]]);
     });
+    it('si en un tablero de 1x5 la x se mueve 1 it should return the modified board', () => {
+        let board = [["x", ".", ".", ".", "y"]];
+        let player = "player1";
+        let line = 1;
+        let moves = 1;
+        expect(nextMovement(board, player, line, moves)).toStrictEqual([[".", "x" , ".", ".", "y"]]);
+    });
 
 });
