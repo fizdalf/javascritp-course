@@ -2,7 +2,7 @@
  //   Given two Arrays in which values are the power of each soldier, return true if you survive the attack
  //   or false if you perish.
 
- module.exports = hasSurvived();
+ module.exports = hasSurvived;
 
  function hasSurvived(attackers, defenders){
      let attackersSurvivors = 0;
@@ -11,9 +11,9 @@
      while (attackers.length !== defenders.length){
          if (attackers.length < defenders.length){
              attackers.push(0);
+             continue;
          }
-             defenders.push(0);
-         }
+         defenders.push(0);
      }
 
      for (let i=0; i<attackers.length; i++){
