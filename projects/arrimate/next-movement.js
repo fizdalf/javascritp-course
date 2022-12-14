@@ -1,7 +1,15 @@
 module.exports = nextMovement;
 
-function nextMovement(board, player, line, moves) {
+function giveMeDots(numberOfDotsWeNeed) {
+    let dots = [];
 
+    while (dots.length < numberOfDotsWeNeed) {
+        dots.push(".");
+    }
+    return dots;
+}
+
+function nextMovement(board, player, line, moves) {
     if (board[0].length > 2) {
 
         if (board[0][1] === 'x') {
@@ -13,12 +21,8 @@ function nextMovement(board, player, line, moves) {
         if (board[0][3] === 'x') {
             return [[".", ".", ".", ".", "x", "y"]]
         }
-        let dots = [];
         let numberOfDotsWeNeed = board[0].length - 3;
-
-        while (dots.length < numberOfDotsWeNeed) {
-            dots.push(".");
-        }
+        let dots = giveMeDots(numberOfDotsWeNeed);
         return [[".", "x", ...dots, "y"]];
     }
     throw "invalid movement";
