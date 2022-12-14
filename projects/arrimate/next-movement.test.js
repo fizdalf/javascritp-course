@@ -8,7 +8,6 @@ describe('nextMovement', function () {
         let player = "player1";
         let line = 1;
         let moves = 1;
-        expect(nextMovement(board, player, line, moves)).toThrow(
-            "invalid movement");
-    })
+        expect(() => nextMovement(board, player, line, moves)).toThrow("invalid movement");
+    });
 });
