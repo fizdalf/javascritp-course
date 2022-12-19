@@ -18,8 +18,8 @@ function nextMovement(board, player, line, moves) {
             dotsBeforeX = giveMeDots(board[0].length - 4);
             dotsAfterX = giveMeDots(board[0].length - 4)
         } else if (board[0][2] === 'x') {
-            dotsBeforeX = giveMeDots(3);
-            dotsAfterX = giveMeDots(1);
+            dotsBeforeX = giveMeDots(board[0].length - 3);
+            dotsAfterX = giveMeDots(board[0].length - 5);
         } else if (board[0][3] === 'x') {
             dotsBeforeX = giveMeDots(4);
             dotsAfterX = giveMeDots(0);
