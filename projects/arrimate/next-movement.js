@@ -30,9 +30,8 @@ function nextMovement(board, player, line, moves) {
             dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
             dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier);
         } else {
-            let numberOfDotsWeNeed = board[0].length - 3;
             dotsBeforeX = giveMeDots( board[0].length - board[0].length + 1 );
-            dotsAfterX = giveMeDots(numberOfDotsWeNeed);
+            dotsAfterX = giveMeDots(board[0].length - 3);
         }
         return [[...dotsBeforeX, "x", ...dotsAfterX, "y"]];
     }
