@@ -6,11 +6,7 @@ function countDots(line) { // [".", "x", ".", ".", "y"]
        dotsAfterX = 2;
     }
     if (line.length === 3) {
-        let dotsAfterX = 1;
-        return {
-            dotsBeforeX: 0,
-            dotsAfterX: dotsAfterX
-        };
+        dotsAfterX = 1;
     }
     return {
         dotsBeforeX: 0,
