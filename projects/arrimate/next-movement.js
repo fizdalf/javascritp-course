@@ -13,7 +13,8 @@ function nextMovement(board, player, line, moves) {
     if (board[0].length > 2) {
 
         if (board[0][1] === 'x') {
-            return [[".", ".", "x", ".", ".", "y"]]
+            let dotsBeforeX =  giveMeDots(2);
+            return [[...dotsBeforeX, "x", ".", ".", "y"]]
         }
         if (board[0][2] === 'x') {
             let dotsBeforeX =  giveMeDots(3);
