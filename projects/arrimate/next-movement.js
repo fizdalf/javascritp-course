@@ -23,7 +23,8 @@ function nextMovement(board, player, line, moves) {
         }
         let numberOfDotsWeNeed = board[0].length - 3;
         let dots = giveMeDots(numberOfDotsWeNeed);
-        return [[".", "x", ...dots, "y"]];
+        let dotsBeforeX =  giveMeDots(1);
+        return [[...dotsBeforeX, "x", ...dots, "y"]];
     }
     throw "invalid movement";
 }
