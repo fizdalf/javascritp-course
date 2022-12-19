@@ -21,12 +21,13 @@ function nextMovement(board, player, line, moves) {
             return [[...dotsBeforeX, "x", ".", "y"]]
         }
         if (board[0][3] === 'x') {
+            let dotsAfterX=giveMeDots(0)
             let dotsBeforeX =  giveMeDots(4);
-            return [[...dotsBeforeX, "x", "y"]]
+            return [[...dotsBeforeX, "x", ...dotsAfterX, "y"]]
         }
         let numberOfDotsWeNeed = board[0].length - 3;
         let dots = giveMeDots(numberOfDotsWeNeed);
-        let dotsBeforeX =  giveMeDots(1);
+        let dotsBeforeX = giveMeDots(1);
         return [[...dotsBeforeX, "x", ...dots, "y"]];
     }
     throw "invalid movement";
