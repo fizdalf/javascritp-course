@@ -15,8 +15,10 @@ function nextMovement(board, player, line, moves) {
         let dotsAfterX;
         let dotsBeforeX;
         if (board[0][1] === 'x') {
-            dotsBeforeX = giveMeDots(board[0].length - 4);
-            dotsAfterX = giveMeDots(board[0].length - 4)
+            let dotsBeforeModifier = 4;
+            let dotsAfterModifier = 4;
+            dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
+            dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier)
         } else if (board[0][2] === 'x') {
             dotsBeforeX = giveMeDots(board[0].length - 3);
             dotsAfterX = giveMeDots(board[0].length - 5);
@@ -25,7 +27,7 @@ function nextMovement(board, player, line, moves) {
             dotsAfterX = giveMeDots(board[0].length - 6);
         } else {
             let numberOfDotsWeNeed = board[0].length - 3;
-            dotsBeforeX = giveMeDots(1);
+            dotsBeforeX = giveMeDots( board[0].length - board[0].length + 1 );
             dotsAfterX = giveMeDots(numberOfDotsWeNeed);
         }
         return [[...dotsBeforeX, "x", ...dotsAfterX, "y"]];
