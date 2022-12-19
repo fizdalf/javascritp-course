@@ -14,26 +14,23 @@ function nextMovement(board, player, line, moves) {
     if (board[0].length > 2) {
         let dotsAfterX;
         let dotsBeforeX;
+        let dotsAfterModifier = 3;
+        let dotsBeforeModifier = board[0].length - 1;
         if (board[0][1] === 'x') {
-            let dotsBeforeModifier = 4;
-            let dotsAfterModifier = 4;
-            dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
-            dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier)
+            dotsBeforeModifier = 4;
+            dotsAfterModifier = 4;
         } else if (board[0][2] === 'x') {
-            let dotsBeforeModifier = 3;
-            let dotsAfterModifier = 5;
-            dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
-            dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier);
+            dotsBeforeModifier = 3;
+            dotsAfterModifier = 5;
         } else if (board[0][3] === 'x') {
-            let dotsBeforeModifier = 2;
-            let dotsAfterModifier = 6;
-            dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
-            dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier);
-        } else {
-            dotsBeforeX = giveMeDots( board[0].length - board[0].length + 1 );
-            dotsAfterX = giveMeDots(board[0].length - 3);
+            dotsBeforeModifier = 2;
+            dotsAfterModifier = 6;
         }
+        dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
+        dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier);
         return [[...dotsBeforeX, "x", ...dotsAfterX, "y"]];
     }
     throw "invalid movement";
 }
+
+
