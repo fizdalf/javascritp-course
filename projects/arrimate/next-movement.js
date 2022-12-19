@@ -10,6 +10,7 @@ function giveMeDots(numberOfDotsWeNeed) {
 }
 
 function nextMovement(board, player, line, moves) {
+
     if (board[0].length > 2) {
 
         if (board[0][1] === 'x') {
