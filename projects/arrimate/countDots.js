@@ -28,9 +28,13 @@ function countDots(line) {
     //     }
     //     return acc;
     // }, [0]);
+    // return {
+    //     dotsBeforeX: result[0],
+    //     dotsAfterX: result[1],
+    // };
 
     return {
-        dotsBeforeX: result[0],
-        dotsAfterX: result[1],
+        dotsBeforeX: dotsBeforeX,
+        dotsAfterX: dotsAfterX,
     };
 }
