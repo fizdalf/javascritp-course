@@ -3,7 +3,6 @@ module.exports = countDots;
 function countDots(line) {
     let dotsBeforeX = 0;
     let dotsAfterX = 0;
-    let i = 0;
     let seenXAlready = false;
 
     for (let i = 0; i < line.length; i++) {
