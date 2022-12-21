@@ -4,17 +4,34 @@ function countDots(line) {
     let dotsBeforeX = 0;
     let dotsAfterX = 0;
     let i = 0;
-    while (line[i] !== "x") {
-        dotsBeforeX++;
-        i++;
+    let seenXAlready = false;
+
+    for (let i = 0; i < line.length; i++) {
+        if (line[i] === "x") {
+            seenXAlready = true;
+        }
+
+        if (line[i] === ".") {
+            if (!seenXAlready) {
+                dotsBeforeX++;
+                continue;
+            }
+            dotsAfterX++;
+        }
     }
-    i++;
-    while (line[i] !== "y") {
-        dotsAfterX++;
-        i++;
-    }
+
+    // const result = line.reduce((acc, character) => {
+    //     if (character !== '.') {
+    //         acc.push(0);
+    //     }
+    //     if (character === ".") {
+    //         acc[acc.length - 1]++;
+    //     }
+    //     return acc;
+    // }, [0]);
+
     return {
-        dotsBeforeX: dotsBeforeX,
-        dotsAfterX: dotsAfterX
+        dotsBeforeX: result[0],
+        dotsAfterX: result[1],
     };
 }
