@@ -1,17 +1,18 @@
 module.exports = countDots;
 
-function countDots(line) { // [".", "x", ".", ".", "y"]
+function countDots(line) {
     let dotsBeforeX = 0;
-    let dotsAfterX = line.length - 2;
+    let dotsAfterX = 0;
     let i = 0;
     while (line[i] !== "x") {
         dotsBeforeX++;
         i++;
     }
-    if (dotsBeforeX >= 1) {
-        dotsAfterX = 0;
+    i++;
+    while (line[i] !== "y") {
+        dotsAfterX++;
+        i++;
     }
-
     return {
         dotsBeforeX: dotsBeforeX,
         dotsAfterX: dotsAfterX
