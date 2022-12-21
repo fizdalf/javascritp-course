@@ -9,4 +9,11 @@ describe('countDots', function () {
     it('should return an object with the two in dotsAfterX when given an array with two dots after x', () => {
         expect(countDots(["x", ".", ".", "y"])).toStrictEqual({dotsBeforeX: 0, dotsAfterX: 2});
     });
+    it('should return an object with the two in dotsAfterX when given an array with two dots after x', () => {
+        expect(countDots([".", "x", "y"])).toStrictEqual({
+            dotsBeforeX: 1,
+            dotsAfterX: 0
+        });
+    });
+
 });
