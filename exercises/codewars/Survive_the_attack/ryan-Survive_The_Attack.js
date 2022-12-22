@@ -1,19 +1,44 @@
 
  //   Given two Arrays in which values are the power of each soldier, return true if you survive the attack
  //   or false if you perish.
- module.exports = surviveTheAttack();
 
- function surviveTheAttack (attackers, defenders) {
-     if (attackers === [1] | defenders === [1]) {
-         return false;
+ module.exports = hasSurvived;
+
+ function hasSurvived(attackers, defenders){
+     let attackersSurvivors = 0;
+     let defendersSurvivors = 0;
+
+     while (attackers.length !== defenders.length){
+         if (attackers.length < defenders.length){
+             attackers.push(0);
+             continue;
+         }
+         defenders.push(0);
      }
-           return true;
-          };
 
- function initialAttackersPower () {
-         let total = 0;
-         for(let i = 0; i <= attackers.length; i++) total += attackers[i];
-         return;
+     for (let i=0; i<attackers.length; i++){
+         if(attackers[i] > defenders[i]){
+             attackersSurvivors += 1;
+         }
+         else if (attackers[i] < defenders[i]){
+             defendersSurvivors += 1;
+         }
+     }
+
+     if (attackersSurvivors === defendersSurvivors) {
+         attackersSurvivors = 0;
+         defendersSurvivors = 0;
+
+         for (let i=0; i<attackers.length; i++){
+             attackersSurvivors += attackers[i];
+         }
+         for (let j=0; j<defenders.length; j++){
+             defendersSurvivors += defenders[j];
+         }
+         return attackersSurvivors - defendersSurvivors <= 0;
+     }
+
+     return attackersSurvivors - defendersSurvivors < 0;
  }
 
  //   Each soldier attacks the opposing soldier in the same index of the array. The survivor is the number with the highest value.
@@ -35,3 +60,4 @@
  // attackers=[ 1, 3, 5, 7 ]   defenders=[ 2, 4, 0, 8 ]
 //1 survivors                3 survivors
 //return true
+
