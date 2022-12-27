@@ -1,5 +1,7 @@
 module.exports = toCamelCase;
 
-function toCamelCase(str){
+let string = "";
+
+function toCamelCase(){
 return a;
 }
