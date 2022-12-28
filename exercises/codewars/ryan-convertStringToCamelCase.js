@@ -1,7 +1,7 @@
-module.exports = toCamelCase;
+module.exports = toCamelCase ();
 
 let string = "";
 
 function toCamelCase(){
-return a;
-}
+     return a;
+    };

@@ -1,6 +1,6 @@
 const toCamelCase = require("./ryan-convertStringToCamelCase");
 
-describe('toCamelCase', () => {
+describe('toCamelCase ()', () => {
     it.each([
         {given: `a`, expected: `a`},
     ])('should return $expected when given $given', ({given, expected}) => {
