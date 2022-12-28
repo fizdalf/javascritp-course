@@ -1,9 +1,8 @@
-const toCamelCase = require("./ryan-convertStringToCamelCase");
+const toCamelCase = require("../codewars/ryan-convertStringToCamelCase");
 
 describe('toCamelCase ()', () => {
-    it.each([
-        {given: `a`, expected: `a`},
-    ])('should return $expected when given $given', ({given, expected}) => {
-        expect(toCamelCase(given)).toBe(expected);
+    it('should return "a" when given "a"', () => {
+    expect(toCamelCase("a")).toBe("a");
     });
+
 });
