@@ -54,4 +54,40 @@ describe('nextMovement', function () {
         let moves = 1;
         expect(nextMovement(board, player, line, moves)).toStrictEqual([[".", ".", ".", ".", "x", "y"]]);
     });
+    it('si en un tablero de 1x6 la x se mueve 1 it should return the modified board', () => {
+        let board = [
+            [".", ".", ".", ".", "x", "y"]
+        ];
+        let player = "player1";
+        let line = 1;
+        let moves = 1;
+        expect(() => nextMovement(board, player, line, moves)).toThrow("invalid movement");
+    });
+    it("should return a modified board in the second line, when we make a move on it", () => {
+        let board = [
+            [".", ".", ".", ".", "x", "y"],
+            [".", "x", ".", ".", ".", "y"]
+        ];
+        let player = "player1";
+        let line = 2;
+        let moves = 1;
+        expect(nextMovement(board, player, line, moves)).toStrictEqual([[".", ".", ".", ".", "x", "y"], [".", ".", "x", ".", ".", "y"]]);
+    });
+    it("should return a modified board in the third line, when we make a move on it", () => {
+        let board = [
+            [".", ".", ".", ".", "x", "y"],
+            [".", "x", ".", ".", ".", "y"],
+            [".", ".", "x", ".", ".", "y"]
+        ];
+        let player = "player1";
+        let line = 3;
+        let moves = 1;
+        let expectedResult = [
+            [".", ".", ".", ".", "x", "y"],
+            [".", "x", ".", ".", ".", "y"],
+            [".", ".", ".", "x", ".", "y"]
+        ];
+        expect(nextMovement(board, player, line, moves)).toStrictEqual(expectedResult);
+    });
 });
+

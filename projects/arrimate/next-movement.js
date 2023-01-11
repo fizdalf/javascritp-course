@@ -1,4 +1,4 @@
-module.exports = nextMovement;
+const countDots = require('./countDots.js');
 
 function giveMeDots(numberOfDotsWeNeed) {
     let dots = [];
@@ -10,27 +10,33 @@ function giveMeDots(numberOfDotsWeNeed) {
 }
 
 function nextMovement(board, player, line, moves) {
-
-    if (board[0].length > 2) {
-        let dotsAfterX;
-        let dotsBeforeX;
-        let dotsAfterModifier = 3;
-        let dotsBeforeModifier = board[0].length - 1;
-        if (board[0][1] === 'x') {
-            dotsBeforeModifier = 4;
-            dotsAfterModifier = 4;
-        } else if (board[0][2] === 'x') {
-            dotsBeforeModifier = 3;
-            dotsAfterModifier = 5;
-        } else if (board[0][3] === 'x') {
-            dotsBeforeModifier = 2;
-            dotsAfterModifier = 6;
-        }
-        dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
-        dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier);
-        return [[...dotsBeforeX, "x", ...dotsAfterX, "y"]];
+    const lineIndex = line - 1;
+    const countedDots = countDots(board[lineIndex]);
+    const dotsBeforeXInitial = countedDots.dotsBeforeX;
+    const dotsAfterXInitial = countedDots.dotsAfterX;
+    if (dotsAfterXInitial === 0) {
+        throw "invalid movement";
     }
-    throw "invalid movement";
+    let dotsBeforeX = giveMeDots(dotsBeforeXInitial + 1);
+    let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
+    let firstLine = board[0];
+    let secondLine = board[1];
+    if (line === 2) {
+        return [
+            firstLine,
+            [...dotsBeforeX, "x", ...dotsAfterX, "y"]
+        ];
+    }
+    if (line === 3) {
+        return [
+            firstLine,
+            secondLine,
+            [...dotsBeforeX, "x", ...dotsAfterX, "y"]
+        ]
+    }
+    return [
+        [...dotsBeforeX, "x", ...dotsAfterX, "y"]
+    ];
 }
 
-
+module.exports = nextMovement;
