@@ -108,5 +108,30 @@ describe('nextMovement', function () {
         ];
         expect(nextMovement(board, player, line, moves)).toStrictEqual(expectedResult);
     });
+    it("should return a modified board in the first line, when we make a move on it", () => {
+        let board = [
+            [".", ".", ".", "x", ".", "y"],
+            [".", "x", ".", ".", ".", "y"],
+        ];
+        let player = "player1";
+        let line = 1;
+        let moves = 1;
+        let expectedResult = [
+            [".", ".", ".", ".", "x", "y"],
+            [".", "x", ".", ".", ".", "y"],
+        ];
+        expect(nextMovement(board, player, line, moves)).toStrictEqual(expectedResult);
+    });
+
+    it("should throw an 'invalid line value' error when given a line is less than 1 ", () => {
+        let board = [
+            [".", ".", ".", "x", ".", "y"],
+            [".", "x", ".", ".", ".", "y"],
+        ];
+        let player = "player1";
+        let line = -1;
+        let moves = 1;
+        expect(() => nextMovement(board, player, line, moves)).toThrow("invalid line value");
+    });
 });
 

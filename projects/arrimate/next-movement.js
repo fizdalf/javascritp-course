@@ -9,7 +9,26 @@ function giveMeDots(numberOfDotsWeNeed) {
     return dots;
 }
 
+function getUnchangedLinesBefore(line, board) {
+    let linesUnchanged = [];
+    for (let i = 1; i < line; i++) {
+        linesUnchanged.push(board[i - 1]);
+    }
+    return linesUnchanged;
+}
+
+function getUnchangedLinesAfter(line, board) {
+    let linesUnchanged = [];
+    for (let i = line; i < board.length; i++) {
+        linesUnchanged.push(board[line]);
+    }
+    return linesUnchanged;
+}
+
 function nextMovement(board, player, line, moves) {
+    if (line < 1) {
+        throw "invalid line value";
+    }
     const lineIndex = line - 1;
     const countedDots = countDots(board[lineIndex]);
     const dotsBeforeXInitial = countedDots.dotsBeforeX;
@@ -19,30 +38,12 @@ function nextMovement(board, player, line, moves) {
     }
     let dotsBeforeX = giveMeDots(dotsBeforeXInitial + 1);
     let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
-    let linesUnchanged = [];
-    if (line === 2) {
-        linesUnchanged = [
-            board[0],
-        ];
-    }
-
-    if (line === 3) {
-        linesUnchanged = [
-            board[0],
-            board[1],
-        ];
-    }
-
-    if (line === 4) {
-        linesUnchanged = [
-            board[0],
-            board[1],
-            board[2],
-        ];
-    }
+    let linesUnchangedBefore = getUnchangedLinesBefore(line, board);
+    let linesUnchangedAfter = getUnchangedLinesAfter(line, board);
     return [
-        ...linesUnchanged,
-        [...dotsBeforeX, "x", ...dotsAfterX, "y"]
+        ...linesUnchangedBefore,
+        [...dotsBeforeX, "x", ...dotsAfterX, "y"],
+        ...linesUnchangedAfter
     ];
 }
 
