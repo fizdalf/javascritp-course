@@ -31,18 +31,15 @@ function nextMovement(board, player, line, moves) {
             [...dotsBeforeX, "x", ...dotsAfterX, "y"]
         ];
     }
+    let linesUnchanged = [];
     if (line === 3) {
-        const linesUnchanged = [
+        linesUnchanged = [
             firstLine,
             secondLine,
         ];
-        return [
-            ...linesUnchanged,
-            [...dotsBeforeX, "x", ...dotsAfterX, "y"]
-        ]
     }
 
-    let linesUnchanged = [];
+
     if (line === 4) {
         linesUnchanged = [
             firstLine,
