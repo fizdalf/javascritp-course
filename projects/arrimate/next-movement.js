@@ -26,9 +26,10 @@ function getUnchangedLinesAfter(line, board) {
 }
 
 function nextMovement(board, player, line, moves) {
-    if (line < 1) {
+    if (line < 1 || line > board.length) {
         throw "invalid line value";
     }
+    
     const lineIndex = line - 1;
     const countedDots = countDots(board[lineIndex]);
     const dotsBeforeXInitial = countedDots.dotsBeforeX;

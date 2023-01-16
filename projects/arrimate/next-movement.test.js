@@ -133,5 +133,15 @@ describe('nextMovement', function () {
         let moves = 1;
         expect(() => nextMovement(board, player, line, moves)).toThrow("invalid line value");
     });
+    it("should throw an 'invalid line value' error when given a line is greater than the lines in the board ", () => {
+        let board = [
+            [".", ".", ".", "x", ".", "y"],
+            [".", "x", ".", ".", ".", "y"],
+        ];
+        let player = "player1";
+        let line = 50;
+        let moves = 1;
+        expect(() => nextMovement(board, player, line, moves)).toThrow("invalid line value");
+    });
 });
 
