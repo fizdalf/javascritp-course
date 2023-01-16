@@ -21,20 +21,37 @@ function nextMovement(board, player, line, moves) {
     let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
     let firstLine = board[0];
     let secondLine = board[1];
+    let thirdLine = board[2];
     if (line === 2) {
-        return [
+        const linesUnchanged = [
             firstLine,
+        ];
+        return [
+            ...linesUnchanged,
             [...dotsBeforeX, "x", ...dotsAfterX, "y"]
         ];
     }
     if (line === 3) {
-        return [
+        const linesUnchanged = [
             firstLine,
             secondLine,
+        ];
+        return [
+            ...linesUnchanged,
             [...dotsBeforeX, "x", ...dotsAfterX, "y"]
         ]
     }
+
+    let linesUnchanged = [];
+    if (line === 4) {
+        linesUnchanged = [
+            firstLine,
+            secondLine,
+            thirdLine,
+        ];
+    }
     return [
+        ...linesUnchanged,
         [...dotsBeforeX, "x", ...dotsAfterX, "y"]
     ];
 }

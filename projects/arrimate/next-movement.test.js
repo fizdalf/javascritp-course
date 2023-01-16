@@ -89,5 +89,24 @@ describe('nextMovement', function () {
         ];
         expect(nextMovement(board, player, line, moves)).toStrictEqual(expectedResult);
     });
+
+    it("should return a modified board in the fourth line, when we make a move on it", () => {
+        let board = [
+            [".", ".", ".", ".", "x", "y"],
+            [".", "x", ".", ".", ".", "y"],
+            [".", ".", "x", ".", ".", "y"],
+            ["x", ".", ".", ".", ".", "y"],
+        ];
+        let player = "player1";
+        let line = 4;
+        let moves = 1;
+        let expectedResult = [
+            [".", ".", ".", ".", "x", "y"],
+            [".", "x", ".", ".", ".", "y"],
+            [".", ".", "x", ".", ".", "y"],
+            [".", "x", ".", ".", ".", "y"],
+        ];
+        expect(nextMovement(board, player, line, moves)).toStrictEqual(expectedResult);
+    });
 });
 
