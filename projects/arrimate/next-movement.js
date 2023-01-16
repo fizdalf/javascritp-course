@@ -19,32 +19,25 @@ function nextMovement(board, player, line, moves) {
     }
     let dotsBeforeX = giveMeDots(dotsBeforeXInitial + 1);
     let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
-    let firstLine = board[0];
-    let secondLine = board[1];
-    let thirdLine = board[2];
-    if (line === 2) {
-        const linesUnchanged = [
-            firstLine,
-        ];
-        return [
-            ...linesUnchanged,
-            [...dotsBeforeX, "x", ...dotsAfterX, "y"]
-        ];
-    }
     let linesUnchanged = [];
-    if (line === 3) {
+    if (line === 2) {
         linesUnchanged = [
-            firstLine,
-            secondLine,
+            board[0],
         ];
     }
 
+    if (line === 3) {
+        linesUnchanged = [
+            board[0],
+            board[1],
+        ];
+    }
 
     if (line === 4) {
         linesUnchanged = [
-            firstLine,
-            secondLine,
-            thirdLine,
+            board[0],
+            board[1],
+            board[2],
         ];
     }
     return [
