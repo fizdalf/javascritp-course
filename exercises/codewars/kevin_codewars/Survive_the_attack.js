@@ -1,4 +1,4 @@
-module.exports = gameOFAttackAndDefence()
+module.exports = gameOFAttackAndDefence 
 
 function gameOFAttackAndDefence(attackers, defenders) {
     attackers=[];
