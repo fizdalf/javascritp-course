@@ -46,7 +46,7 @@ function getChangedLine(line, board) {
     return [...dotsBeforeX, "x", ...dotsAfterX, "y"];
 }
 
-function nextMovement(board, player, line, moves) {
+function nextMovement(board, player, line, steps) {
     ensureLineValueIsValid(line, board);
     const lineChanged = getChangedLine(line, board);
     const linesUnchangedBefore = getUnchangedLinesBefore(line, board);
