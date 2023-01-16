@@ -1,11 +1,9 @@
 function nextPal(val) {
-    val = String(val).split(' ')
-    let valReversed = toString(val).split(' ').reverse().join('');
-    while (valReversed !== val) {
-        val++;
-    }
-return val
+let elnumerito=parseInt(val.toString().split('').reverse().join(''));
+
+return elnumerito;
+
 
 }
 
-console.log(nextPal(12))
+module.exports=nextPal;
