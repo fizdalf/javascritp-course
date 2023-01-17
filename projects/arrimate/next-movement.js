@@ -1,4 +1,4 @@
-module.exports = nextMovement;
+const countDots = require('./countDots.js');
 
 function giveMeDots(numberOfDotsWeNeed) {
     let dots = [];
@@ -9,28 +9,53 @@ function giveMeDots(numberOfDotsWeNeed) {
     return dots;
 }
 
-function nextMovement(board, player, line, moves) {
-
-    if (board[0].length > 2) {
-        let dotsAfterX;
-        let dotsBeforeX;
-        let dotsAfterModifier = 3;
-        let dotsBeforeModifier = board[0].length - 1;
-        if (board[0][1] === 'x') {
-            dotsBeforeModifier = 4;
-            dotsAfterModifier = 4;
-        } else if (board[0][2] === 'x') {
-            dotsBeforeModifier = 3;
-            dotsAfterModifier = 5;
-        } else if (board[0][3] === 'x') {
-            dotsBeforeModifier = 2;
-            dotsAfterModifier = 6;
-        }
-        dotsBeforeX = giveMeDots(board[0].length - dotsBeforeModifier);
-        dotsAfterX = giveMeDots(board[0].length - dotsAfterModifier);
-        return [[...dotsBeforeX, "x", ...dotsAfterX, "y"]];
+function getUnchangedLinesBefore(line, board) {
+    let linesUnchanged = [];
+    for (let i = 1; i < line; i++) {
+        linesUnchanged.push(board[i - 1]);
     }
-    throw "invalid movement";
+    return linesUnchanged;
 }
 
+function getUnchangedLinesAfter(line, board) {
+    let linesUnchanged = [];
+    for (let i = line; i < board.length; i++) {
+        linesUnchanged.push(board[line]);
+    }
+    return linesUnchanged;
+}
 
+function ensureLineValueIsValid(line, board) {
+    if (line < 1 || line > board.length) {
+        throw "invalid line value";
+    }
+}
+
+function ensureXCanMove(dotsAfterXInitial) {
+    if (dotsAfterXInitial === 0) {
+        throw "invalid movement";
+    }
+}
+
+function getChangedLine(line, board) {
+    const lineIndex = line - 1;
+    const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial} = countDots(board[lineIndex]);
+    ensureXCanMove(dotsAfterXInitial);
+    let dotsBeforeX = giveMeDots(dotsBeforeXInitial + 1);
+    let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
+    return [...dotsBeforeX, "x", ...dotsAfterX, "y"];
+}
+
+function nextMovement(board, player, line, steps) {
+    ensureLineValueIsValid(line, board);
+    const lineChanged = getChangedLine(line, board);
+    const linesUnchangedBefore = getUnchangedLinesBefore(line, board);
+    const linesUnchangedAfter = getUnchangedLinesAfter(line, board);
+    return [
+        ...linesUnchangedBefore,
+        lineChanged,
+        ...linesUnchangedAfter
+    ];
+}
+
+module.exports = nextMovement;
