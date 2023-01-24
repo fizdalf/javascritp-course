@@ -143,5 +143,33 @@ describe('nextMovement', function () {
         let steps = 1;
         expect(() => nextMovement(board, player, line, steps)).toThrow("invalid line value");
     });
+    it("should return a modified board in the second line, when we make a move on it", () => {
+        let board = [
+            [".", ".", ".", "x", ".", "y"],
+            [".", "x", ".", ".", "y", "."],
+        ];
+        let player = "player1";
+        let line = 2;
+        let steps = 2;
+        let expectedResult = [
+            [".", ".", ".", "x", ".", "y"],
+            [".", ".", ".", "x", "y", "."],
+        ];
+        expect(nextMovement(board, player, line, steps)).toStrictEqual(expectedResult);
+    });
+    it("should return a modified board in the first line when we make a move on it, even if the Y is not at the last position.", () => {
+        let board = [
+            [".", "x", ".", ".", "y", "."],
+            ["x", ".", ".", ".", ".", "y"],
+        ];
+        let player = "player1";
+        let line = 1;
+        let steps = 1;
+        let expectedResult = [
+            [".", ".", "x", ".", "y", "."],
+            ["x", ".", ".", ".", ".", "y"],
+        ];
+        expect(nextMovement(board, player, line, steps)).toStrictEqual(expectedResult);
+    });
 });
 

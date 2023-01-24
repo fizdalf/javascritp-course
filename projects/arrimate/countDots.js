@@ -19,22 +19,22 @@ function countDots(line) {
         }
     }
 
-    // const result = line.reduce((acc, character) => {
-    //     if (character !== '.') {
-    //         acc.push(0);
-    //     }
-    //     if (character === ".") {
-    //         acc[acc.length - 1]++;
-    //     }
-    //     return acc;
-    // }, [0]);
-    // return {
-    //     dotsBeforeX: result[0],
-    //     dotsAfterX: result[1],
-    // };
-
     return {
         dotsBeforeX: dotsBeforeX,
         dotsAfterX: dotsAfterX,
     };
 }
+
+// const result = line.reduce((acc, character) => {
+//     if (character !== '.') {
+//         acc.push(0);
+//     }
+//     if (character === ".") {
+//         acc[acc.length - 1]++;
+//     }
+//     return acc;
+// }, [0]);
+// return {
+//     dotsBeforeX: result[0],
+//     dotsAfterX: result[1],
+// };
