@@ -31,7 +31,7 @@ function ensureLineValueIsValid(line, board) {
     }
 }
 
-function ensureXCanMove(dotsAfterXInitial) {
+function ensurePlayerCanMove(dotsAfterXInitial) {
     if (dotsAfterXInitial === 0) {
         throw "invalid movement";
     }
@@ -39,11 +39,12 @@ function ensureXCanMove(dotsAfterXInitial) {
 
 function getChangedLine(line, board) {
     const lineIndex = line - 1;
-    const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial} = countDots(board[lineIndex]);
-    ensureXCanMove(dotsAfterXInitial);
+    const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial, dotsAfterY: dotsAfterYInitial} = countDots(board[lineIndex]);
+    ensurePlayerCanMove(dotsAfterXInitial);
     let dotsBeforeX = giveMeDots(dotsBeforeXInitial + 1);
     let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
-    return [...dotsBeforeX, "x", ...dotsAfterX, "y"];
+    let dotsAfterY = giveMeDots(dotsAfterYInitial );
+    return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
 }
 
 function nextMovement(board, player, line, steps) {
