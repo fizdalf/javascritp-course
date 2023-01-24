@@ -143,7 +143,7 @@ describe('nextMovement', function () {
         let steps = 1;
         expect(() => nextMovement(board, player, line, steps)).toThrow("invalid line value");
     });
-    it("should return a modified board in the second line, when we make a move on it", () => {
+    it("TEST CHUNGO", () => {
         let board = [
             [".", ".", ".", "x", ".", "y"],
             [".", "x", ".", ".", "y", "."],

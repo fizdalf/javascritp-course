@@ -3,11 +3,17 @@ module.exports = countDots;
 function countDots(line) {
     let dotsBeforeX = 0;
     let dotsAfterX = 0;
+    let dotsAfterY = 0;
     let seenXAlready = false;
+    let seenYAlready = false;
 
     for (let i = 0; i < line.length; i++) {
         if (line[i] === "x") {
             seenXAlready = true;
+        }
+
+        if (line[i] === "y") {
+            seenYAlready = true;
         }
 
         if (line[i] === ".") {
@@ -15,13 +21,18 @@ function countDots(line) {
                 dotsBeforeX++;
                 continue;
             }
-            dotsAfterX++;
+            if (!seenYAlready) {
+                dotsAfterX++;
+                continue;
+            }
+            dotsAfterY++;
         }
     }
 
     return {
         dotsBeforeX: dotsBeforeX,
         dotsAfterX: dotsAfterX,
+        dotsAfterY: dotsAfterY,
     };
 }
 
