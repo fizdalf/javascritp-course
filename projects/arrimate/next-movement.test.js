@@ -229,6 +229,16 @@ describe('nextMovement', function () {
         ];
         expect(nextMovement(board, player, line, steps)).toStrictEqual(expectedResult);
     });
-
+    it ("should throw an error when we move back steps", () => {
+        let board = [
+            [".", "x", ".", ".", "y", "."],
+            ["x", ".", ".", ".", ".", "y"],
+            [".", ".", "x", "y", ".", "."],
+        ];
+        let player = "player1";
+        let line = -3;
+        let steps = 2;
+        expect(() => nextMovement(board, player, line, steps)).toThrow();
+    });
 });
 
