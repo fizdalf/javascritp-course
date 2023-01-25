@@ -20,7 +20,7 @@ function getUnchangedLinesBefore(line, board) {
 function getUnchangedLinesAfter(line, board) {
     let linesUnchanged = [];
     for (let i = line; i < board.length; i++) {
-        linesUnchanged.push(board[line]);
+        linesUnchanged.push(board[i]);
     }
     return linesUnchanged;
 }
@@ -31,24 +31,50 @@ function ensureLineValueIsValid(line, board) {
     }
 }
 
-function ensureXCanMove(dotsAfterXInitial) {
-    if (dotsAfterXInitial === 0) {
+function ensurePlayerCanMove(dotsBetween, steps) {
+
+    if (dotsBetween === 0 || steps < 0 || steps > dotsBetween) {
         throw "invalid movement";
     }
 }
 
-function getChangedLine(line, board) {
+function getLine({dotsAfter, dotsBefore, dotsBetween}) {
+    return [
+        ...giveMeDots(dotsBefore),
+        "x",
+        ...giveMeDots(dotsBetween),
+        "y",
+        ...giveMeDots(dotsAfter)
+    ];
+}
+
+function getChangedLine(board, player, line, steps) {
     const lineIndex = line - 1;
-    const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial} = countDots(board[lineIndex]);
-    ensureXCanMove(dotsAfterXInitial);
-    let dotsBeforeX = giveMeDots(dotsBeforeXInitial + 1);
-    let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
-    return [...dotsBeforeX, "x", ...dotsAfterX, "y"];
+    const {
+        dotsBefore: initialDotsBefore,
+        dotsBetween: initialDotsBetween,
+        dotsAfter: initialDotsAfter
+    } = countDots(board[lineIndex]);
+    ensurePlayerCanMove(initialDotsBetween, steps);
+
+    let modifiedDots = {
+        dotsBefore: initialDotsBefore,
+        dotsBetween: initialDotsBetween - steps,
+        dotsAfter: initialDotsAfter + steps,
+    }
+    if (player === "player1") {
+        modifiedDots = {
+            dotsBefore: initialDotsBefore + steps,
+            dotsBetween: initialDotsBetween - steps,
+            dotsAfter: initialDotsAfter,
+        }
+    }
+    return getLine(modifiedDots);
 }
 
 function nextMovement(board, player, line, steps) {
     ensureLineValueIsValid(line, board);
-    const lineChanged = getChangedLine(line, board);
+    const lineChanged = getChangedLine(board, player, line, steps);
     const linesUnchangedBefore = getUnchangedLinesBefore(line, board);
     const linesUnchangedAfter = getUnchangedLinesAfter(line, board);
     return [
