@@ -40,11 +40,14 @@ function ensurePlayerCanMove(dotsAfterXInitial, steps) {
     // no se puede jugar 2 veces consecutivas
 }
 
-function getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifiedDotsAfterPlayerTwo) {
-    let dotsAfterX = giveMeDots(modifiedDotsBetweenPlayers);
-    let dotsBeforeX = giveMeDots(modifiedDotsBeforePlayerOne);
-    let dotsAfterY = giveMeDots(modifiedDotsAfterPlayerTwo);
-    return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
+function getLine(dotsBetween, dotsBefore, dotsAfter) {
+    return [
+        ...giveMeDots(dotsBefore),
+        "x",
+        ...giveMeDots(dotsBetween),
+        "y",
+        ...giveMeDots(dotsAfter)
+    ];
 }
 
 function getChangedLine(board, player, line, steps) {
