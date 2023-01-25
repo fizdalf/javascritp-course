@@ -30,9 +30,9 @@ function countDots(line) {
     }
 
     return {
-        dotsBeforeX: dotsBeforeX,
-        dotsAfterX: dotsAfterX,
-        dotsAfterY: dotsAfterY,
+        dotsBefore: dotsBeforeX,
+        dotsBetween: dotsAfterX,
+        dotsAfter: dotsAfterY,
     };
 }
 
