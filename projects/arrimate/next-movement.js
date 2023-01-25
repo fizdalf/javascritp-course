@@ -31,13 +31,11 @@ function ensureLineValueIsValid(line, board) {
     }
 }
 
-function ensurePlayerCanMove(dotsAfterXInitial, steps) {
+function ensurePlayerCanMove(dotsBetween, steps) {
 
-    if (dotsAfterXInitial === 0 || steps < 0 || steps > dotsAfterXInitial) {
+    if (dotsBetween === 0 || steps < 0 || steps > dotsBetween) {
         throw "invalid movement";
     }
-
-    // no se puede jugar 2 veces consecutivas
 }
 
 function getLine({dotsAfter, dotsBefore, dotsBetween}) {
@@ -53,22 +51,22 @@ function getLine({dotsAfter, dotsBefore, dotsBetween}) {
 function getChangedLine(board, player, line, steps) {
     const lineIndex = line - 1;
     const {
-        dotsBefore: dotsBeforeXInitial,
-        dotsBetween: dotsAfterXInitial,
-        dotsAfter: dotsAfterYInitial
+        dotsBefore: initialDotsBefore,
+        dotsBetween: initialDotsBetween,
+        dotsAfter: initialDotsAfter
     } = countDots(board[lineIndex]);
-    ensurePlayerCanMove(dotsAfterXInitial, steps);
+    ensurePlayerCanMove(initialDotsBetween, steps);
 
     let modifiedDots = {
-        dotsBefore: dotsBeforeXInitial,
-        dotsBetween: dotsAfterXInitial - steps,
-        dotsAfter: dotsAfterYInitial + steps,
+        dotsBefore: initialDotsBefore,
+        dotsBetween: initialDotsBetween - steps,
+        dotsAfter: initialDotsAfter + steps,
     }
     if (player === "player1") {
         modifiedDots = {
-            dotsBefore: dotsBeforeXInitial + steps,
-            dotsBetween: dotsAfterXInitial - steps,
-            dotsAfter: dotsAfterYInitial,
+            dotsBefore: initialDotsBefore + steps,
+            dotsBetween: initialDotsBetween - steps,
+            dotsAfter: initialDotsAfter,
         }
     }
     return getLine(modifiedDots);
