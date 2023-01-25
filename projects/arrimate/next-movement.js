@@ -49,22 +49,21 @@ function getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifi
 
 function getChangedLine(board, player, line, steps) {
     const lineIndex = line - 1;
-    const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial, dotsAfterY: dotsAfterYInitial} = countDots(board[lineIndex]);
+    const {
+        dotsBeforeX: dotsBeforeXInitial,
+        dotsAfterX: dotsAfterXInitial,
+        dotsAfterY: dotsAfterYInitial
+    } = countDots(board[lineIndex]);
     ensurePlayerCanMove(dotsAfterXInitial, steps);
+    let modifiedDotsBeforePlayerOne = dotsBeforeXInitial;
+    let modifiedDotsBetweenPlayers = dotsAfterXInitial - steps;
+    let modifiedDotsAfterPlayerTwo = dotsAfterYInitial + steps;
     if (player === "player1") {
-        let modifiedDotsBeforePlayerOne = dotsBeforeXInitial + steps;
-        let modifiedDotsBetweenPlayers = dotsAfterXInitial - steps;
-        let modifiedDotsAfterPlayerTwo = dotsAfterYInitial;
-
-        return getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifiedDotsAfterPlayerTwo);
+        modifiedDotsBeforePlayerOne = dotsBeforeXInitial + steps;
+        modifiedDotsBetweenPlayers = dotsAfterXInitial - steps;
+        modifiedDotsAfterPlayerTwo = dotsAfterYInitial;
     }
-    if (player === "player2") {
-        let modifiedDotsBeforePlayerOne = dotsBeforeXInitial;
-        let modifiedDotsBetweenPlayers = dotsAfterXInitial - steps;
-        let modifiedDotsAfterPlayerTwo = dotsAfterYInitial + steps;
-
-        return getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifiedDotsAfterPlayerTwo)
-    }
+    return getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifiedDotsAfterPlayerTwo);
 }
 
 function nextMovement(board, player, line, steps) {
