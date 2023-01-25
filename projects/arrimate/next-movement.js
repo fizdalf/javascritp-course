@@ -40,6 +40,13 @@ function ensurePlayerCanMove(dotsAfterXInitial, steps) {
     // no se puede jugar 2 veces consecutivas
 }
 
+function getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifiedDotsAfterPlayerTwo) {
+    let dotsAfterX = giveMeDots(modifiedDotsBetweenPlayers);
+    let dotsBeforeX = giveMeDots(modifiedDotsBeforePlayerOne);
+    let dotsAfterY = giveMeDots(modifiedDotsAfterPlayerTwo);
+    return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
+}
+
 function getChangedLine(board, player, line, steps) {
     const lineIndex = line - 1;
     const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial, dotsAfterY: dotsAfterYInitial} = countDots(board[lineIndex]);
@@ -48,16 +55,15 @@ function getChangedLine(board, player, line, steps) {
         let modifiedDotsBeforePlayerOne = dotsBeforeXInitial + steps;
         let modifiedDotsBetweenPlayers = dotsAfterXInitial - steps;
         let modifiedDotsAfterPlayerTwo = dotsAfterYInitial;
-        let dotsAfterX = giveMeDots(modifiedDotsBetweenPlayers);
-        let dotsBeforeX = giveMeDots(modifiedDotsBeforePlayerOne);
-        let dotsAfterY = giveMeDots(modifiedDotsAfterPlayerTwo );
-        return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
+
+        return getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifiedDotsAfterPlayerTwo);
     }
     if (player === "player2") {
-        let dotsBeforeX = giveMeDots(dotsBeforeXInitial);
-        let dotsAfterX = giveMeDots(dotsAfterXInitial - steps);
-        let dotsAfterY = giveMeDots(dotsAfterYInitial + steps);
-        return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
+        let modifiedDotsBeforePlayerOne = dotsBeforeXInitial;
+        let modifiedDotsBetweenPlayers = dotsAfterXInitial - steps;
+        let modifiedDotsAfterPlayerTwo = dotsAfterYInitial + steps;
+
+        return getLine(modifiedDotsBetweenPlayers, modifiedDotsBeforePlayerOne, modifiedDotsAfterPlayerTwo)
     }
 }
 
