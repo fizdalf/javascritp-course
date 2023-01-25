@@ -45,9 +45,12 @@ function getChangedLine(board, player, line, steps) {
     const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial, dotsAfterY: dotsAfterYInitial} = countDots(board[lineIndex]);
     ensurePlayerCanMove(dotsAfterXInitial, steps);
     if (player === "player1") {
-        let dotsBeforeX = giveMeDots(dotsBeforeXInitial + steps);
-        let dotsAfterX = giveMeDots(dotsAfterXInitial - steps);
-        let dotsAfterY = giveMeDots(dotsAfterYInitial );
+        let modifiedDotsBeforePlayerOne = dotsBeforeXInitial + steps;
+        let modifiedDotsBetweenPlayers = dotsAfterXInitial - steps;
+        let modifiedDotsAfterPlayerTwo = dotsAfterYInitial;
+        let dotsAfterX = giveMeDots(modifiedDotsBetweenPlayers);
+        let dotsBeforeX = giveMeDots(modifiedDotsBeforePlayerOne);
+        let dotsAfterY = giveMeDots(modifiedDotsAfterPlayerTwo );
         return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
     }
     if (player === "player2") {
