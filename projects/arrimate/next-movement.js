@@ -20,7 +20,7 @@ function getUnchangedLinesBefore(line, board) {
 function getUnchangedLinesAfter(line, board) {
     let linesUnchanged = [];
     for (let i = line; i < board.length; i++) {
-        linesUnchanged.push(board[line]);
+        linesUnchanged.push(board[i]);
     }
     return linesUnchanged;
 }
