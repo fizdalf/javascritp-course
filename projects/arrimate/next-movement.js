@@ -32,24 +32,37 @@ function ensureLineValueIsValid(line, board) {
 }
 
 function ensurePlayerCanMove(dotsAfterXInitial) {
+
     if (dotsAfterXInitial === 0) {
         throw "invalid movement";
     }
+
+    // no se puede retroceder
+
+    // no se puede jugar 2 veces consecutivas
 }
 
-function getChangedLine(line, board) {
+function getChangedLine(board, player, line, steps) {
     const lineIndex = line - 1;
     const {dotsBeforeX: dotsBeforeXInitial, dotsAfterX: dotsAfterXInitial, dotsAfterY: dotsAfterYInitial} = countDots(board[lineIndex]);
     ensurePlayerCanMove(dotsAfterXInitial);
-    let dotsBeforeX = giveMeDots(dotsBeforeXInitial + 1);
-    let dotsAfterX = giveMeDots(dotsAfterXInitial - 1);
-    let dotsAfterY = giveMeDots(dotsAfterYInitial );
-    return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
+    if (player === "player1") {
+        let dotsBeforeX = giveMeDots(dotsBeforeXInitial + steps);
+        let dotsAfterX = giveMeDots(dotsAfterXInitial - steps);
+        let dotsAfterY = giveMeDots(dotsAfterYInitial );
+        return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
+    }
+    if (player === "player2") {
+        let dotsBeforeX = giveMeDots(dotsBeforeXInitial);
+        let dotsAfterX = giveMeDots(dotsAfterXInitial - steps);
+        let dotsAfterY = giveMeDots(dotsAfterYInitial + steps);
+        return [...dotsBeforeX, "x", ...dotsAfterX, "y", ...dotsAfterY];
+    }
 }
 
 function nextMovement(board, player, line, steps) {
     ensureLineValueIsValid(line, board);
-    const lineChanged = getChangedLine(line, board);
+    const lineChanged = getChangedLine(board, player, line, steps);
     const linesUnchangedBefore = getUnchangedLinesBefore(line, board);
     const linesUnchangedAfter = getUnchangedLinesAfter(line, board);
     return [
