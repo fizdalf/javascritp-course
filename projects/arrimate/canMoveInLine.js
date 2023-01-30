@@ -1,10 +1,8 @@
 const countDots = require('./countDots.js');
-let dotsAfterX = 0;
-function canMoveInLine(board, line) {
-      if (countDots( dotsAfterX >= 1)) {
-              return "true";
-      }
-      return "false";
+
+function canMoveInLine(board, lineNumber) {
+    const result = countDots(board[lineNumber - 1]);
+    return result.dotsBetween > 0;
 }
 
 module.exports = canMoveInLine;
