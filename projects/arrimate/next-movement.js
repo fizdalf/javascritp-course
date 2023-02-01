@@ -1,4 +1,5 @@
-const countDots = require('./countDots.js');
+import {countDots} from "./countDots.js";
+
 
 function giveMeDots(numberOfDotsWeNeed) {
     let dots = [];
@@ -72,7 +73,7 @@ function getChangedLine(board, player, line, steps) {
     return getLine(modifiedDots);
 }
 
-function nextMovement(board, player, line, steps) {
+export function nextMovement(board, player, line, steps) {
     ensureLineValueIsValid(line, board);
     const lineChanged = getChangedLine(board, player, line, steps);
     const linesUnchangedBefore = getUnchangedLinesBefore(line, board);
@@ -84,4 +85,3 @@ function nextMovement(board, player, line, steps) {
     ];
 }
 
-module.exports = nextMovement;

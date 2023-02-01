@@ -1,8 +1,9 @@
-const countDots = require('./countDots.js');
+import {countDots} from "./countDots.js";
 
-function canMoveInLine(board, lineNumber) {
+
+export function canMoveInLine(board, lineNumber) {
     const result = countDots(board[lineNumber - 1]);
     return result.dotsBetween > 0;
 }
 
-module.exports = canMoveInLine;
+

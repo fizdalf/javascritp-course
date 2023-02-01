@@ -1,6 +1,5 @@
 import inquirer from 'inquirer';
 
-
 const main = async () => {
     let selectedOption = null;
     do {

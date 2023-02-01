@@ -1,4 +1,4 @@
-const canMoveInLine = require(`./canMoveInLine`);
+const canMoveInLine = require (`./canMoveInLine`);
 
 describe('canMoveInLine', function () {
     it('should return true if one dot is between x and y', () => {
