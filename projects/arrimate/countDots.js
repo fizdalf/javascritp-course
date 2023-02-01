@@ -1,6 +1,6 @@
-module.exports = countDots;
 
-function countDots(line) {
+
+export function countDots(line) {
     let dotsBeforeX = 0;
     let dotsAfterX = 0;
     let dotsAfterY = 0;
