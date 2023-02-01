@@ -16,6 +16,14 @@ describe('stringifyBoard', function () {
         ]
         expect(stringifyBoard(boardWithJustOneCell)).toStrictEqual("| 1 |\n+---+\n| x | <- 1\n+---+\n");
     });
+    it('should print a string version of a board with just one line, and one cell containing a y', () => {
+        const boardWithJustOneCell = [
+            [
+                "y"
+            ]
+        ]
+        expect(stringifyBoard(boardWithJustOneCell)).toStrictEqual("| 1 |\n+---+\n| y | <- 1\n+---+\n");
+    });
 });
 
 
