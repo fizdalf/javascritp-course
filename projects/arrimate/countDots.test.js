@@ -1,4 +1,5 @@
-const countDots = require("./countDots");
+import {countDots} from "./countDots.js";
+
 describe('countDots', function () {
     it('should return an object with the zero in the three keys when given an empty array', () => {
         expect(countDots(["x", "y"])).toStrictEqual({dotsBeforeX: 0, dotsAfterX: 0, dotsAfterY: 0});

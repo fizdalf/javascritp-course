@@ -1,6 +1,8 @@
 // next movement, recibe lo siguientes parámetros (board, player, line, steps), debe indicar si la jugada es válida o
 // no, lanzando un error en caso que no sea válida, y devolviendo el tablero modificado en caso de que lo sea
-const nextMovement = require("./next-movement");
+
+
+import {nextMovement} from "./next-movement.js";
 
 describe('nextMovement', function () {
     it('si en un tablero de 1x2 la x se mueve 3 an error is thrown', () => {
