@@ -1,30 +1,31 @@
 import inquirer from 'inquirer';
 
-<<<<<<< HEAD
 
-=======
+<<<<<HEAD
+
+
 >>>>>>> main
-const main = async () => {
-    let selectedOption = null;
-    do {
+    const main = async () => {
+        const selectedOption = null;
+        do {
         const answer = await inquirer
-            .prompt([
-                {
-                    type: 'list',
-                    name: 'options',
-                    message: 'Please select one of the options',
-                    choices: [
-                        {
-                            name: 'Print Board',
-                            value: 'printBoard',
-                        },
-                        {
-                            name: 'Exit',
-                            value: 'exit',
-                        },
-                    ],
-                },
-            ]);
+        .prompt([
+    {
+        type: 'list',
+        name: 'options',
+        message: 'Please select one of the options',
+        choices: [
+    {
+        name: 'Print Board',
+        value: 'printBoard',
+    },
+    {
+        name: 'Exit',
+        value: 'exit',
+    },
+        ],
+    },
+        ]);
         selectedOption = answer.options
 
         // TODO: create a function stringifyBoard(board) that will print the table to the console with the following structure
@@ -40,12 +41,12 @@ const main = async () => {
         //  Use TDD to create the function that will return a STRING representation of the board, this function will be used
         //  by printBoard to print the board to the console
         const exampleBoard = [
-            [".", "X", ".", ".", "Y", ".", "."],
-            ["X", ".", ".", ".", ".", ".", "Y"],
-            ["X", ".", ".", ".", ".", ".", "Y"],
+        [".", "X", ".", ".", "Y", ".", "."],
+        ["X", ".", ".", ".", ".", ".", "Y"],
+        ["X", ".", ".", ".", ".", ".", "Y"],
         ]
         printBoard(exampleBoard) // this function prints the board.
     } while (selectedOption !== 'exit');
-}
+    }
 
-main();
+    main();
