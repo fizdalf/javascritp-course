@@ -48,6 +48,31 @@ describe('stringifyBoard', function () {
         ]
         expect(stringifyBoard(board)).toStrictEqual("| 1 | 2 | 3 | 4 |\n+---+---+---+---+\n| x | . | . | y | <- 1\n+---+---+---+---+\n");
     });
+    it('should print a string version of a board with just one line, and five cells containing X, ., ., . and Y', () => {
+        const board = [
+            [
+                "x", ".", ".", ".", "y"
+            ]
+        ]
+        expect(stringifyBoard(board)).toStrictEqual("| 1 | 2 | 3 | 4 | 5 |\n+---+---+---+---+---+\n| x | . | . | . | y | <- 1\n+---+---+---+---+---+\n");
+    });
+    it('should print a string version of a board with just one line, and five cells containing X, ., ., Y and .', () => {
+        const board = [
+            [
+                "x", ".", ".", "y", "."
+            ]
+        ]
+        expect(stringifyBoard(board)).toStrictEqual("| 1 | 2 | 3 | 4 | 5 |\n+---+---+---+---+---+\n| x | . | . | y | . | <- 1\n+---+---+---+---+---+\n");
+    });
+    it('should print a string version of a board with just two lines, and one cell containing a space', () => {
+        const board = [
+            [
+                ".",
+                "."
+            ]
+        ]
+        expect(stringifyBoard(board)).toStrictEqual("| 1 |\n+---+\n| . | <- 1\n| . | <- 2\n+---+\n");
+    });
 });
 
 
