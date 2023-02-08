@@ -68,10 +68,12 @@ describe('stringifyBoard', function () {
         const board = [
             [
                 ".",
-                "."
+            ],
+            [
+                ".",
             ]
         ]
-        expect(stringifyBoard(board)).toStrictEqual("| 1 |\n+---+\n| . | <- 1\n| . | <- 2\n+---+\n");
+        expect(stringifyBoard(board)).toStrictEqual("| 1 |\n+---+\n| . | <- 1\n+---+\n| . | <- 2\n+---+\n");
     });
 });
 

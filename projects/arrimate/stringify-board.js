@@ -29,11 +29,15 @@ function getLine(board) {
     for (let i = 1; i < board[0].length; i++) {
         line += middleStick + board[0][i];
     }
-    return line + rightStick + lineNumber + "\n";
+    return line + rightStick + " <- 1" + "\n";
 }
-function getLine2() {
-    // una funcion que de la linia 2.
-    return "\n" + leftStick + "." + rightStick + reverseArrow + 2 + "\n";
+
+function getLine2(board) {
+    let line = leftStick + board[1][0];
+    for (let i = 1; i < board[1].length; i++) {
+        line += middleStick + board[1][i];
+    }
+    return line + rightStick + " <- 2" + "\n";
 }
 
 /*function getLineNumber(board) {
@@ -50,16 +54,11 @@ function stringifyBoard(board) {
     let header = getHeader(board[0].length);
     let spacing = getSpacing(board[0].length);
     let line = getLine(board);
-    let line2 = getLine2()
- if (board.length === 1) {
-     return header + spacing + line + spacing;
- }
-    return  leftStick + 1 + rightStick + "\n" + spacing + line + line2 + spacing;
-
-
-
-
-
+    let line2 = getLine2(board);
+    if (board.length === 1) {
+        return header + spacing + line + spacing;
+    }
+    return leftStick + 1 + rightStick + "\n" + spacing + line + spacing + line2 + spacing;
 }
 
 
