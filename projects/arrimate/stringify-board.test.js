@@ -97,7 +97,16 @@ describe('stringifyBoard', function () {
             ["x", ".", ".", ".", "y"]
 
         ]
-        expect(stringifyBoard(boardWithJustOneCell)).toStrictEqual("| 1 | 2 | 3 | 4 | 5 |\n+---+---+---+---+---+\n| x | . | . | . | y | <- 1\n+---+---+---+---+---+\n| x | . | . | . | y | <- 1\n+---+---+---+---+---+\n ");
+        expect(stringifyBoard(boardWithJustOneCell)).toStrictEqual("| 1 | 2 | 3 | 4 | 5 |\n+---+---+---+---+---+\n| x | . | . | . | y | <- 1\n+---+---+---+---+---+\n| x | . | . | . | y | <- 2\n+---+---+---+---+---+\n");
+    });
+    it('should print a string version of a  board with three lines, and one cell containing  . , . , . ', () => {
+        const boardWithJustOneCell = [
+            ["."],
+            ["."],
+            ["."]
+
+        ]
+        expect(stringifyBoard(boardWithJustOneCell)).toStrictEqual("| 1 |\n+---+\n| . | <- 1\n+---+\n| . | <- 2\n+---+\n| . | <- 3\n+---+\n");
     });
 
 });
