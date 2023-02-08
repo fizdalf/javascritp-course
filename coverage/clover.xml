@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1670524924275" clover="3.2.0">
-  <project timestamp="1670524924275" name="All files">
-    <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2" elements="12" coveredelements="12" complexity="0" loc="8" ncloc="8" packages="1" files="1" classes="1"/>
-    <file name="next-palindromic-number.js" path="E:\teaching-resources\javascript-course\exercises\codewars\next-palindromic-number\next-palindromic-number.js">
-      <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
-      <line num="17" count="13" type="stmt"/>
-      <line num="18" count="13" type="stmt"/>
-      <line num="19" count="101" type="cond" truecount="2" falsecount="0"/>
-      <line num="20" count="13" type="stmt"/>
-      <line num="22" count="88" type="stmt"/>
-      <line num="27" count="101" type="stmt"/>
-      <line num="28" count="101" type="stmt"/>
-      <line num="31" count="1" type="stmt"/>
+<coverage generated="1675272204550" clover="3.2.0">
+  <project timestamp="1675272204551" name="All files">
+    <metrics statements="24" coveredstatements="3" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0" elements="36" coveredelements="3" complexity="0" loc="24" ncloc="24" packages="1" files="2" classes="2"/>
+    <file name="canMoveInLine.js" path="/Users/Ryan/Desktop/Nahum/jobs/programaciochavy/projects/arrimate/canMoveInLine.js">
+      <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+    </file>
+    <file name="countDots.js" path="/Users/Ryan/Desktop/Nahum/jobs/programaciochavy/projects/arrimate/countDots.js">
+      <metrics statements="20" coveredstatements="1" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="4" count="0" type="stmt"/>
+      <line num="5" count="0" type="stmt"/>
+      <line num="6" count="0" type="stmt"/>
+      <line num="7" count="0" type="stmt"/>
+      <line num="8" count="0" type="stmt"/>
+      <line num="10" count="0" type="stmt"/>
+      <line num="11" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="15" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="16" count="0" type="stmt"/>
+      <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="21" count="0" type="stmt"/>
+      <line num="22" count="0" type="stmt"/>
+      <line num="24" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="28" count="0" type="stmt"/>
+      <line num="32" count="0" type="stmt"/>
     </file>
   </project>
 </coverage>
