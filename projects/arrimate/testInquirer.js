@@ -1,7 +1,6 @@
 import inquirer from 'inquirer';
 import {stringifyBoard} from "./stringify-board.js";
 import {createBoard} from "./createBoard.js";
-import {nextMovement} from "./next-movement.js";
 
 const main = async () => {
     let selectedOption = null;
