@@ -61,3 +61,5 @@ main();
 //
 // gadgets: poner que si ponen q en segun que sitio exit program.
 // si se piran, end game
+
+// TODO: ryan --> https://youtu.be/qRlwyCMKbNY
