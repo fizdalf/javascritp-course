@@ -1,0 +1,93 @@
+XY game
+
+1.
+Prompt "Please provide the board dimension has to be an integer smaller than 11" Input{Number}
+  - if one number is 0 --> error message
+  - if one number is bigger than 10 --> error message
+
+
+2.
+Show the board.
+
+| 1 | 2 | 3 | 4 |
++---+---+---+---+
+| X | . | . | Y | <- 1
++---+---+---+---+
+| X | . | . | Y | <- 2
++---+---+---+---+
+| X | . | . | Y | <- 3
++---+---+---+---+
+
+3.
+Prompt "Player X turn -> enter steps to move" input{number}
+  - if not possible error message
+
+4.
+Show the board.
+
+| 1 | 2 | 3 | 4 |
++---+---+---+---+
+| . | X | . | Y | <- 1
++---+---+---+---+
+| X | . | . | Y | <- 2
++---+---+---+---+
+| X | . | . | Y | <- 3
++---+---+---+---+
+
+5.
+Prompt "Player Y turn -> enter steps to move" input{number}
+- if not possible error message
+
+6.
+Show the board.
+
+| 1 | 2 | 3 | 4 |
++---+---+---+---+
+| . | X | Y | . | <- 1
++---+---+---+---+
+| X | . | . | Y | <- 2
++---+---+---+---+
+| X | . | . | Y | <- 3
++---+---+---+---+
+
+8.
+Prompt "Player X turn -> enter steps to move" input{number}
+     - if not possible error message
+
+9.
+Show the board.
+
+| 1 | 2 | 3 | 4 |
++---+---+---+---+
+| . | X | Y | . | <- 1
++---+---+---+---+
+| . | . | X | Y | <- 2
++---+---+---+---+
+| X | . | . | Y | <- 3
++---+---+---+---+
+
+10.
+Prompt "Player Y turn -> enter steps to move" input{number}
+- if not possible error message
+
+11.
+Show the board.
+
+| 1 | 2 | 3 | 4 |
++---+---+---+---+
+| . | X | Y | . | <- 1
++---+---+---+---+
+| . | . | X | Y | <- 2
++---+---+---+---+
+| X | Y | . | . | <- 3
++---+---+---+---+
+
+12.
+Prompt "Player Y won!!"
+Prompt list
+"
+- Play again
+- Exit
+"
+ - if play again, we start from 1.
+ - if exit, game finishes.

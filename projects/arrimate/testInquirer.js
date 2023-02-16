@@ -1,47 +1,35 @@
 import inquirer from 'inquirer';
 import {stringifyBoard} from "./stringify-board.js";
+import {createBoard} from "./createBoard.js";
 
 const main = async () => {
     let selectedOption = null;
     do {
-        const answer = await inquirer
-            .prompt([
-                {
-                    type: 'list',
-                    name: 'options',
-                    message: 'Please select one of the options',
-                    choices: [
-                        {
-                            name: 'Print Board',
-                            value: 'printBoard',
-                        },
-                        {
-                            name: 'Exit',
-                            value: 'exit',
-                        },
-                    ],
-                },
-            ]);
-        selectedOption = answer.options
 
-        // TODO: create a function stringifyBoard(board) that will print the table to the console with the following structure
-        //  | 1 | 2 | 3 | 4 | 5 | 6 | 7 |
-        //  +---+---+---+---+---+---+---+
-        //  | . | X | . | . | Y | . | . | <- 1
-        //  +---+---+---+---+---+---+---+
-        //  | X | . | . | . | . | . | Y | <- 2
-        //  +---+---+---+---+---+---+---+
-        //  | X | . | . | . | . | . | Y | <- 3
-        //  +---+---+---+---+---+---+---+
-        //  Use the function to show the board when the user selects the "Print Board" option
-        //  Use TDD to create the function that will return a STRING representation of the board, this function will be used
-        //  by printBoard to print the board to the console
-        const exampleBoard = [
-            [".", "X", ".", ".", "Y", ".", "."],
-            ["X", ".", ".", ".", ".", ".", "Y"],
-            ["X", ".", ".", ".", ".", ".", "Y"],
-        ]
-        printBoard(exampleBoard) // this function prints the board.
+        let dimension = null;
+        do {
+            console.clear()
+            const answer = await inquirer.prompt([
+                {
+                    type: 'number',
+                    name: 'dimension',
+                    message: 'Please provide the board dimension, it has to be an integer between 3 and 10.',
+                }
+            ]);
+            dimension = answer.dimension;
+        } while (isNaN(dimension) || dimension < 3 || dimension > 10);
+        console.clear();
+        console.log(`the dimension of the board is ${dimension}x${dimension} `);
+
+        const board = createBoard(dimension);
+
+        printBoard(board);
+
+       // TODO: conseguir que el tablero no se borre y que el jugador pueda decir su jugada. 
+
+
+        selectedOption = "exit";
+
     } while (selectedOption !== 'exit');
 }
 
@@ -62,4 +50,4 @@ main();
 // gadgets: poner que si ponen q en segun que sitio exit program.
 // si se piran, end game
 
-// TODO: ryan --> https://youtu.be/qRlwyCMKbNY
+

@@ -1,14 +1,6 @@
 import {countDots} from "./countDots.js";
+import {giveMeDots} from "./give-me-dots.js";
 
-
-function giveMeDots(numberOfDotsWeNeed) {
-    let dots = [];
-
-    while (dots.length < numberOfDotsWeNeed) {
-        dots.push(".");
-    }
-    return dots;
-}
 
 function getUnchangedLinesBefore(line, board) {
     let linesUnchanged = [];
