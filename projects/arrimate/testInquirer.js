@@ -2,6 +2,8 @@ import inquirer from 'inquirer';
 import {stringifyBoard} from "./stringify-board.js";
 import {createBoard} from "./createBoard.js";
 import {countDots} from "./countDots.js";
+import {nextMovement} from "./next-movement.js";
+import {canMoveInLine} from "./canMoveInLine.js";
 
 async function getDimension() {
     let dimension = null;
@@ -33,34 +35,52 @@ async function askStep() {
     );
 }
 
-function isValidMovement(board, steps) {
-    const line = board[0];
+function isValidMovement(lineNumber, board, steps) {
+    let lineIndex = lineNumber - 1;
+    const line = board[lineIndex];
     const {dotsBetween} = countDots(line);
-    console.log(line);
-    console.log(dotsBetween)
     return steps >= 1 && steps <= dotsBetween;
+}
 
+async function getSteps(player, lineNumber, board) {
+    let steps;
+    do {
+        const answer = await inquirer.prompt(
+            [
+                {
+                    type: 'number',
+                    name: 'steps',
+                    message: `Player ${player === 'player1' ? "x" : 'y'}, how many steps to move in line ${lineNumber}`,
+                }
+            ]
+        );
+        steps = answer.steps;
+    } while (isNaN(steps) || !isValidMovement(lineNumber, board, steps));
+    return steps;
 }
 
 const main = async () => {
     let dimension = await getDimension();
-    // ---- dimension number >= 3 <= 10
 
     console.clear();
     console.log(`the dimension of the board is ${dimension}x${dimension} `);
 
-    const board = createBoard(dimension);
+    let board = createBoard(dimension);
+    let lineNumber = 1;
+    let player = "player1";
 
-    printBoard(board);
-    let steps;
     do {
-        const answer = await askStep();
-        steps = answer.steps;
-
-        console.log(steps, isValidMovement(board, steps));
-    } while (isNaN(steps) || !isValidMovement(board, steps))
-
-
+        printBoard(board);
+        let steps = await getSteps(player, lineNumber, board);
+        board = nextMovement(board, player, lineNumber, steps);
+        console.clear();
+        printBoard(board);
+        if (!canMoveInLine(board, lineNumber)) {
+            lineNumber++;
+        }
+        player = player === 'player1' ? 'player2' : 'player1';
+    } while (lineNumber <= board.length)
+    console.log(`Player ${player === 'player1' ? "x" : 'y'} has lost!`);
 }
 
 function printBoard(board) {
