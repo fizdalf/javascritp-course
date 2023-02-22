@@ -25,7 +25,6 @@ function ensureLineValueIsValid(line, board) {
 }
 
 function ensurePlayerCanMove(dotsBetween, steps) {
-
     if (dotsBetween === 0 || steps < 0 || steps > dotsBetween) {
         throw "invalid movement";
     }
