@@ -8,5 +8,5 @@ export function createBoard(dimension) {
 
 function giveMeLine(numberOfLines) {
     const dots = giveMeDots(numberOfLines - 2);
-    return ["X", ...dots, "Y"];
+    return ["x", ...dots, "y"];
 }
