@@ -1,36 +1,66 @@
 import inquirer from 'inquirer';
 import {stringifyBoard} from "./stringify-board.js";
 import {createBoard} from "./createBoard.js";
+import {countDots} from "./countDots.js";
 
-const main = async () => {
-    let selectedOption = null;
+async function getDimension() {
+    let dimension = null;
     do {
-
-        let dimension = null;
-        do {
-            console.clear()
-            const answer = await inquirer.prompt([
+        console.clear();
+        const answer = await inquirer.prompt(
+            [
                 {
                     type: 'number',
                     name: 'dimension',
                     message: 'Please provide the board dimension, it has to be an integer between 3 and 10.',
                 }
-            ]);
-            dimension = answer.dimension;
-        } while (isNaN(dimension) || dimension < 3 || dimension > 10);
-        console.clear();
-        console.log(`the dimension of the board is ${dimension}x${dimension} `);
+            ]
+        );
+        dimension = answer.dimension;
+    } while (isNaN(dimension) || dimension < 3 || dimension > 10);
+    return dimension;
+}
 
-        const board = createBoard(dimension);
+async function askStep() {
+    return await inquirer.prompt(
+        [
+            {
+                type: 'number',
+                name: 'steps',
+                message: 'Player X, how many steps to move in line 1',
+            }
+        ]
+    );
+}
 
-        printBoard(board);
+function isValidMovement(board, steps) {
+    const line = board[0];
+    const {dotsBetween} = countDots(line);
+    console.log(line);
+    console.log(dotsBetween)
+    return steps >= 1 && steps <= dotsBetween;
 
-       // TODO: conseguir que el tablero no se borre y que el jugador pueda decir su jugada. 
+}
+
+const main = async () => {
+    let dimension = await getDimension();
+    // ---- dimension number >= 3 <= 10
+
+    console.clear();
+    console.log(`the dimension of the board is ${dimension}x${dimension} `);
+
+    const board = createBoard(dimension);
+
+    printBoard(board);
+    let steps;
+    do {
+        const answer = await askStep();
+        steps = answer.steps;
+
+        console.log(steps, isValidMovement(board, steps));
+    } while (isNaN(steps) || !isValidMovement(board, steps))
 
 
-        selectedOption = "exit";
-
-    } while (selectedOption !== 'exit');
 }
 
 function printBoard(board) {
