@@ -37,19 +37,6 @@ const main = async () => {
 function printBoard(board) {
     console.log(stringifyBoard(board));
 }
-let questions = ["¿Te gusta la pizza?", "¿Has viajado fuera de tu país?", "¿Te gusta el chocolate?", "¿Has montado en un globo aerostático?", "¿Te gusta leer?"];
-
-for(let i=0; i<questions.length; i++){
-    let answer = prompt(questions[i] + " (Responde Sí o No)");
-    if(answer.toUpperCase() === "SI" || answer.toUpperCase() === "SÍ"){
-        console.log("Tu respuesta a la pregunta " + (i+1) + " es: Sí");
-    } else if(answer.toUpperCase() === "NO"){
-        console.log("Tu respuesta a la pregunta " + (i+1) + " es: No");
-    } else{
-        console.log("Respuesta no válida. Por favor, responde Sí o No.");
-        i--;
-    }
-}
 
 main();
 
