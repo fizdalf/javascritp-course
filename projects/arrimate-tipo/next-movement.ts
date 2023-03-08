@@ -2,7 +2,7 @@ import {countDots} from "./countDots.js";
 import {giveMeDots} from "./give-me-dots.js";
 
 
-function getUnchangedLinesBefore(line, board) {
+function getUnchangedLinesBefore(line: number, board: ("x" | "y" | ".")[][]): ("x" | "y" | ".")[][] {
     let linesUnchanged = [];
     for (let i = 1; i < line; i++) {
         linesUnchanged.push(board[i - 1]);
@@ -10,7 +10,7 @@ function getUnchangedLinesBefore(line, board) {
     return linesUnchanged;
 }
 
-function getUnchangedLinesAfter(line, board) {
+function getUnchangedLinesAfter(line: number, board: ("x" | "y" | ".")[][]): ("x" | "y" | ".")[][] {
     let linesUnchanged = [];
     for (let i = line; i < board.length; i++) {
         linesUnchanged.push(board[i]);
@@ -18,19 +18,19 @@ function getUnchangedLinesAfter(line, board) {
     return linesUnchanged;
 }
 
-function ensureLineValueIsValid(line, board) {
+function ensureLineValueIsValid(line: number, board: ("x" | "y" | ".")[][]): any {
     if (line < 1 || line > board.length) {
         throw "invalid line value";
     }
 }
 
-export function ensurePlayerCanMove(dotsBetween, steps) {
+export function ensurePlayerCanMove(dotsBetween: number, steps: number): any {
     if (dotsBetween === 0 || steps < 0 || steps > dotsBetween) {
         throw "invalid movement";
     }
 }
 
-function getLine({dotsAfter, dotsBefore, dotsBetween}) {
+function getLine({dotsAfter, dotsBefore, dotsBetween}: any): string[] {
     return [
         ...giveMeDots(dotsBefore),
         "x",
@@ -40,7 +40,7 @@ function getLine({dotsAfter, dotsBefore, dotsBetween}) {
     ];
 }
 
-function getChangedLine(board, player, line, steps) {
+function getChangedLine(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): string[] {
     const lineIndex = line - 1;
     const {
         dotsBefore: initialDotsBefore,
@@ -64,7 +64,7 @@ function getChangedLine(board, player, line, steps) {
     return getLine(modifiedDots);
 }
 
-export function nextMovement(board, player, line, steps) {
+export function nextMovement(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): string[][] {
     ensureLineValueIsValid(line, board);
     const lineChanged = getChangedLine(board, player, line, steps);
     const linesUnchangedBefore = getUnchangedLinesBefore(line, board);

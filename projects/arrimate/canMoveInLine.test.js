@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 const canMoveInLine = require (`./canMoveInLine`);
+=======
+import {canMoveInLine} from "./canMoveInLine.js";
+
+>>>>>>> main
 
 describe('canMoveInLine', function () {
     it('should return true if one dot is between x and y', () => {
@@ -10,14 +15,5 @@ describe('canMoveInLine', function () {
         let board = [["x", "y"]];
         let line = 1;
         expect(canMoveInLine(board, line)).toStrictEqual(false);
-    });
-    it('should return true when board have "." between x and y', function () {
-        let board = [["x", ".", ".", ".", ".", "y"]];
-        let line = 1;
-    });
-    it('should return false when board have "." between x and y in the second line but in the 1 no', function () {
-        let board = [["x", "y"]
-                     ["x", "y"]];
-        let line = 1;
     });
 });
