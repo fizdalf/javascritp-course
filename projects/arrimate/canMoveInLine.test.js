@@ -1,5 +1,6 @@
 
 const canMoveInLine = require (`./canMoveInLine`);
+
 import {canMoveInLine} from "./canMoveInLine.js";
 
 
