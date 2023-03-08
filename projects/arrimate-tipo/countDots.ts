@@ -1,4 +1,6 @@
-export function countDots(line: ("x" | "y" | ".")[]): {
+import {BoardLine} from './types';
+
+export function countDots(line: BoardLine): {
     dotsBefore: number,
     dotsBetween: number,
     dotsAfter: number,

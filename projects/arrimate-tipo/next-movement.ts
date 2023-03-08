@@ -1,8 +1,9 @@
 import {countDots} from "./countDots.js";
 import {giveMeDots} from "./give-me-dots.js";
+import {Board, BoardLine} from './types';
 
 
-function getUnchangedLinesBefore(line: number, board: ("x" | "y" | ".")[][]): ("x" | "y" | ".")[][] {
+function getUnchangedLinesBefore(line: number, board: Board): Board {
     let linesUnchanged = [];
     for (let i = 1; i < line; i++) {
         linesUnchanged.push(board[i - 1]);
@@ -10,7 +11,7 @@ function getUnchangedLinesBefore(line: number, board: ("x" | "y" | ".")[][]): ("
     return linesUnchanged;
 }
 
-function getUnchangedLinesAfter(line: number, board: ("x" | "y" | ".")[][]): ("x" | "y" | ".")[][] {
+function getUnchangedLinesAfter(line: number, board: Board): Board {
     let linesUnchanged = [];
     for (let i = line; i < board.length; i++) {
         linesUnchanged.push(board[i]);
@@ -18,7 +19,7 @@ function getUnchangedLinesAfter(line: number, board: ("x" | "y" | ".")[][]): ("x
     return linesUnchanged;
 }
 
-function ensureLineValueIsValid(line: number, board: ("x" | "y" | ".")[][]): any {
+function ensureLineValueIsValid(line: number, board: Board): any {
     if (line < 1 || line > board.length) {
         throw "invalid line value";
     }
@@ -30,7 +31,7 @@ export function ensurePlayerCanMove(dotsBetween: number, steps: number): any {
     }
 }
 
-function getLine({dotsAfter, dotsBefore, dotsBetween}: any): ("x" | "y" | ".")[] {
+function getLine({dotsAfter, dotsBefore, dotsBetween}: any): BoardLine {
     return [
         ...giveMeDots(dotsBefore),
         "x",
@@ -40,7 +41,7 @@ function getLine({dotsAfter, dotsBefore, dotsBetween}: any): ("x" | "y" | ".")[]
     ];
 }
 
-function getChangedLine(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): ("x" | "y" | ".")[] {
+function getChangedLine(board: Board, player: string, line: number, steps: number): BoardLine {
     const lineIndex = line - 1;
     const {
         dotsBefore: initialDotsBefore,
@@ -64,7 +65,7 @@ function getChangedLine(board: ("x" | "y" | ".")[][], player: string, line: numb
     return getLine(modifiedDots);
 }
 
-export function nextMovement(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): ("x" | "y" | ".")[][] {
+export function nextMovement(board: Board, player: string, line: number, steps: number): Board {
     ensureLineValueIsValid(line, board);
     const lineChanged = getChangedLine(board, player, line, steps);
     const linesUnchangedBefore = getUnchangedLinesBefore(line, board);

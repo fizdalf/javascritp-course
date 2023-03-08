@@ -1,10 +1,7 @@
 import inquirer from 'inquirer';
-import {stringifyBoard} from "./stringify-board.js";
 import {createBoard} from "./createBoard.js";
-import {countDots} from "./countDots.js";
-import {nextMovement} from "./next-movement.js";
-import {canMoveInLine} from "./canMoveInLine.js";
-import {Board} from './types';
+import {Board} from './Board';
+
 
 async function getDimension() {
     let dimension = null;
@@ -25,14 +22,6 @@ async function getDimension() {
 }
 
 
-
-function isValidMovement(lineNumber: number, board: Board, steps: number): boolean {
-    let lineIndex = lineNumber - 1;
-    const line = board[lineIndex];
-    const {dotsBetween} = countDots(line);
-    return steps >= 1 && steps <= dotsBetween;
-}
-
 async function getSteps(player: string, lineNumber: number, board: Board): Promise<number> {
     let steps: number;
     do {
@@ -46,7 +35,7 @@ async function getSteps(player: string, lineNumber: number, board: Board): Promi
             ]
         );
         steps = answer.steps;
-    } while (isNaN(steps) || !isValidMovement(lineNumber, board, steps));
+    } while (isNaN(steps) || !board.isValidMovement(lineNumber, steps));
     return steps;
 }
 
@@ -57,25 +46,26 @@ const main = async () => {
     console.log(`the dimension of the board is ${dimension}x${dimension} `);
 
     let board: Board = createBoard(dimension);
+
     let lineNumber = 1;
     let player = "player1";
 
     do {
         printBoard(board);
         let steps = await getSteps(player, lineNumber, board);
-        board = nextMovement(board, player, lineNumber, steps);
+        board = board.nextMovement(player, lineNumber, steps);
         console.clear();
         printBoard(board);
-        if (!canMoveInLine(board, lineNumber)) {
+        if (!board.canMoveInLine(lineNumber)) {
             lineNumber++;
         }
         player = player === 'player1' ? 'player2' : 'player1';
-    } while (lineNumber <= board.length)
+    } while (lineNumber <= dimension)
     console.log(`Player ${player === 'player1' ? "x" : 'y'} has lost!`);
 }
 
 function printBoard(board: Board) {
-    console.log(stringifyBoard(board));
+    console.log(board.stringifyBoard());
 }
 
 main();
