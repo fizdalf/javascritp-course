@@ -23,14 +23,14 @@ async function getDimension() {
     return dimension;
 }
 
-function isValidMovement(lineNumber: number, board: object[], steps: number): boolean {
+function isValidMovement(lineNumber: number, board: ("x" | "y" | ".")[][], steps: number): boolean {
     let lineIndex = lineNumber - 1;
     const line = board[lineIndex];
     const {dotsBetween} = countDots(line);
     return steps >= 1 && steps <= dotsBetween;
 }
 
-async function getSteps(player: string, lineNumber: number, board: object): Promise<number> {
+async function getSteps(player: string, lineNumber: number, board: ("x" | "y" | ".")[][]): Promise<number> {
     let steps: number;
     do {
         const answer = await inquirer.prompt(

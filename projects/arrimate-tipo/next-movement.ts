@@ -30,7 +30,7 @@ export function ensurePlayerCanMove(dotsBetween: number, steps: number): any {
     }
 }
 
-function getLine({dotsAfter, dotsBefore, dotsBetween}: any): string[] {
+function getLine({dotsAfter, dotsBefore, dotsBetween}: any): ("x" | "y" | ".")[] {
     return [
         ...giveMeDots(dotsBefore),
         "x",
@@ -40,7 +40,7 @@ function getLine({dotsAfter, dotsBefore, dotsBetween}: any): string[] {
     ];
 }
 
-function getChangedLine(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): string[] {
+function getChangedLine(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): ("x" | "y" | ".")[] {
     const lineIndex = line - 1;
     const {
         dotsBefore: initialDotsBefore,
@@ -64,7 +64,7 @@ function getChangedLine(board: ("x" | "y" | ".")[][], player: string, line: numb
     return getLine(modifiedDots);
 }
 
-export function nextMovement(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): string[][] {
+export function nextMovement(board: ("x" | "y" | ".")[][], player: string, line: number, steps: number): ("x" | "y" | ".")[][] {
     ensureLineValueIsValid(line, board);
     const lineChanged = getChangedLine(board, player, line, steps);
     const linesUnchangedBefore = getUnchangedLinesBefore(line, board);

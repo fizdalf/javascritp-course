@@ -1,12 +1,12 @@
-import {giveMeDots, giveMeItems} from "./give-me-dots.js";
+import {giveMeDots} from "./give-me-dots.js";
 
-export function createBoard(dimension: number): object {
-    const line: any = giveMeLine(dimension);
-    return giveMeItems(dimension, line);
-    //return new Array(dimension).fill(['X', ...(new Array(dimension - 2)).fill('.'), 'Y'])
+export function createBoard(dimension: number): ("x" | "y" | ".")[][] {
+    const line: string[] = giveMeLine(dimension);
+    return new Array(dimension).fill(line);
+
 }
 
-function giveMeLine(numberOfLine: number): string[] {
+function giveMeLine(numberOfLine: number): ("x" | "y" | ".")[] {
     const dots = giveMeDots(numberOfLine - 2);
     return ["x", ...dots, "y"];
 }
