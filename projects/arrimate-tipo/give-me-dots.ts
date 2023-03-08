@@ -1,9 +1,9 @@
-export function giveMeDots(dotsWeNeed: number): string[] {
+export function giveMeDots(dotsWeNeed: number): ("x" | "y" | ".")[] {
     return giveMeItems(dotsWeNeed, ".");
 }
 
-export function giveMeItems(itemsCount: number, item: string): string[] {
-    let items: string[] = [];
+export function giveMeItems(itemsCount: number, item: "."): "."[] {
+    let items: "."[] = [];
 
     while (items.length < itemsCount) {
         items.push(item);
