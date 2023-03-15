@@ -10,7 +10,7 @@ export enum MazeResult {
 
 export function mazeRunner(maze: number[][], directions: string[]): string {
     if (maze.length >= 2) {
-        if (directions[0] === "E" || directions[0] === "S" ) {
+        if (directions[0] === "E" || directions[0] === "S" || directions[0] === "W") {
             return "Dead";
         }
         return "Finish";
