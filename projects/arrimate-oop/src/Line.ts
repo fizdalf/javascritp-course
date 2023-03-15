@@ -1,12 +1,18 @@
-export class Line {
-    private _cells: ('x' | 'y' | '.')[] = [];
+export enum CellType {
+    Player1 = "x",
+    Player2 = "y",
+    EmptySpace = "."
+}
 
-    constructor(cells: ('x' | 'y' | '.')[]) {
+export class Line {
+    private readonly _cells: CellType[];
+
+    constructor(cells: CellType[]) {
         this._cells = cells;
     }
 
-    get cells(): ("x" | "y" | ".")[] {
-        return this._cells;
+    get cells(): CellType[] {
+        return [...this._cells];
     }
 
     getChangedLine(player: string, steps: number) {
@@ -44,15 +50,15 @@ export class Line {
         let seenYAlready: boolean = false;
 
         for (let i = 0; i < this._cells.length; i++) {
-            if (this._cells[i] === "x") {
+            if (this._cells[i] === CellType.Player1) {
                 seenXAlready = true;
             }
 
-            if (this._cells[i] === "y") {
+            if (this._cells[i] === CellType.Player2) {
                 seenYAlready = true;
             }
 
-            if (this._cells[i] === ".") {
+            if (this._cells[i] === CellType.EmptySpace) {
                 if (!seenXAlready) {
                     dotsBeforeX++;
                     continue;
@@ -81,15 +87,27 @@ export class Line {
     private getLine({dotsAfter, dotsBefore, dotsBetween}: any): Line {
         return new Line([
             ...this.giveMeDots(dotsBefore),
-            "x",
+            CellType.Player1,
             ...this.giveMeDots(dotsBetween),
-            "y",
+           CellType.Player2,
             ...this.giveMeDots(dotsAfter)
         ]);
     }
 
-    private giveMeDots(dotsWeNeed: number): "."[] {
+    private giveMeDots(dotsWeNeed: number): CellType.EmptySpace[] {
         return new Array(dotsWeNeed).fill('.');
     }
 
+    isValidMovement(steps: number) {
+        const {dotsBetween} = this.countDots();
+        return steps >= 1 && steps <= dotsBetween;
+    }
+
+    canMove() {
+        const {dotsBetween} = this.countDots();
+        return dotsBetween > 0;
+    }
+    width(): number {
+        return this._cells.length;
+    }
 }
