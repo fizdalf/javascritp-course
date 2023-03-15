@@ -6,13 +6,17 @@ export enum MazeRoom {
 }
 
 export enum MazeResult {
-    Dead = "Dead"
+    Dead = "Dead",
+    Lost = "Lost",
 }
 
 export function mazeRunner(maze: number[][], directions: string[]): string {
     if (maze.length >=3) {
-        if (directions[0] === "E") {
+        if (directions[0] === "E" || directions[0] === "N") {
             return "Lost";
+        }
+        if (directions[0][1] === "N", "N") {
+            return "Finish"
         }
     }
     if (maze.length >= 2) {
