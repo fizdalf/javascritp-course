@@ -19,14 +19,6 @@ describe('maze runner', () => {
         ];
         expect(mazeRunner(maze, directions)).toBe("Finish");
     });
-    it('should return "Finish" when given an 2x2 maze with a starting point, and the one direction that leads to a wall', () => {
-        const directions: string[] = ["E"];
-        const maze = [
-            [MazeRoom.FinishPoint, MazeRoom.Wall],
-            [MazeRoom.StartingPoint, MazeRoom.Wall],
-        ];
-        expect(mazeRunner(maze, directions)).toBe(MazeResult.Dead);
-    });
     it('should return "Dead" when given an 2x2 maze with a starting point, and the one direction that leads to outside the maze', () => {
         const maze = [
             [MazeRoom.FinishPoint, MazeRoom.Wall],
@@ -34,6 +26,7 @@ describe('maze runner', () => {
         ];
         expect(mazeRunner(maze, ["S"])).toBe(MazeResult.Dead);
         expect(mazeRunner(maze, ["W"])).toBe(MazeResult.Dead);
+        expect(mazeRunner(maze, ["E"])).toBe(MazeResult.Dead);
     });
     it('should return "Lost" when given an 2x2 maze with a starting point, and the one direction that leads to a path', () => {
         const maze = [
