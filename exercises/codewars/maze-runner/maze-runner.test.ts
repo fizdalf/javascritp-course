@@ -37,10 +37,10 @@ describe('maze runner', () => {
     });
     it('should return "Lost" when given an 2x2 maze with a starting point, and the one direction that leads to a path', () => {
         const maze = [
-            [MazeRoom.FinishPoint, MazeRoom.Wall],
+            [MazeRoom.FinishPoint, 0],
             [MazeRoom.StartingPoint, 0],
         ];
-        expect(mazeRunner(maze, ["E"])).toBe(MazeResult.Dead);
+        expect(mazeRunner(maze, ["E"])).toBe("Lost");
     });
 });
 
