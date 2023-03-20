@@ -11,6 +11,13 @@ export enum MazeResult {
     Finish = "Finish"
 }
 
+export enum MazeDirections {
+    North = "N",
+    East = "E",
+    West = "W",
+    South = "S",
+}
+
 export function mazeRunner(maze: number[][], directions: string[]): string {
 
 
@@ -67,3 +74,9 @@ export function mazeRunner(maze: number[][], directions: string[]): string {
     }
     return MazeResult.Lost;
 }
+
+export function findStartingPoint(maze: number[][]): { horizontalPosition: number, verticalPosition: number } {
+    return {
+        horizontalPosition: 0, verticalPosition: 0
+    };
+};

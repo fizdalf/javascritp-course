@@ -18,10 +18,25 @@ describe('maze runner', () => {
         ];
         expect(mazeRunner(maze, [MazeDirections.North])).toBe(MazeResult.Finish);
     });
-    it('should return "Dead" when given an 2x2 maze with a starting point, and the one direction that leads to outside the maze', () => {
+    it('should return "Lost" when we are given one step to the north and we find a path', () => {
+        const maze = [
+            [MazeRoom.Path, MazeRoom.FinishPoint],
+            [MazeRoom.StartingPoint, MazeRoom.Path],
+        ];
+        expect(mazeRunner(maze, [MazeDirections.North])).toBe(MazeResult.Lost);
+    });
+    it('should return "Dead" when we are given one step to the north and we find a wall', () => {
+        const maze = [
+            [MazeRoom.Wall, MazeRoom.FinishPoint],
+            [MazeRoom.StartingPoint, MazeRoom.Path],
+        ];
+        expect(mazeRunner(maze, [MazeDirections.North])).toBe(MazeResult.Dead);
+    });
+    it('should return "Dead" when we are given one step the South and step out of the maze', () => {
         const maze = [
             [MazeRoom.FinishPoint, MazeRoom.Wall],
             [MazeRoom.StartingPoint, MazeRoom.Wall],
+
         ];
         expect(mazeRunner(maze, [MazeDirections.South])).toBe(MazeResult.Dead);
     });
