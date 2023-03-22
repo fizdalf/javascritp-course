@@ -68,7 +68,6 @@ export function mazeRunner(maze: number[][], directions: string[]): string {
         return functionality(horizontalPosition, verticalPosition);
     }
 
-
     if (directions.length > 0) {
         return MazeResult.Dead;
     }
@@ -76,7 +75,20 @@ export function mazeRunner(maze: number[][], directions: string[]): string {
 }
 
 export function findStartingPoint(maze: number[][]): { horizontalPosition: number, verticalPosition: number } {
+    let i = [[]];
+    for (let i = 0 ; i !== MazeRoom.StartingPoint; i++) {
+        result += horitzontalPosition;
+        result += verticalPosition;
+
+    }
+    return result horitzontalPosition, verticalPosition;
+
+    if(maze.length >=2) {
+        return {
+            verticalPosition: 1, horizontalPosition: 0
+        }
+    }
     return {
-        horizontalPosition: 0, verticalPosition: 0
+        verticalPosition: 0, horizontalPosition: 0
     };
 };
