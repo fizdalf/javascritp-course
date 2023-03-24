@@ -11,6 +11,6 @@
   SavingsAccount class, or the CurrentAccount class.
     - provide an update method which will affect the accounts in the following way
         - Savings accounts will have the interest added to them.
-        - CurrentAccounts will get a letter if they are in overdraft, that is the balance is below the overdraft limit.
+        - CurrentAccounts will send a letter if they are in overdraft, that is the balance is below the overdraft limit.
     - Add methods to open a new account and to close an existing one.
     - Add a method to pay a dividend to each account.
