@@ -1,12 +1,13 @@
-import {giveMeDots, giveMeItems} from "./give-me-dots.js";
+import {giveMeDots} from "./give-me-dots.js";
+import {Board, BoardLine} from './types';
 
-export function createBoard(dimension: any) {
-    const line = giveMeLine(dimension);
-    return giveMeItems(dimension, line);
-    //return new Array(dimension).fill(['X', ...(new Array(dimension - 2)).fill('.'), 'Y'])
+export function createBoard(dimension: number): Board {
+    const line: BoardLine = giveMeLine(dimension);
+    return new Array(dimension).fill(line);
+
 }
 
-function giveMeLine(lines: number) {
-    const dots = giveMeDots(lines - 2);
+function giveMeLine(numberOfLine: number): BoardLine {
+    const dots = giveMeDots(numberOfLine - 2);
     return ["x", ...dots, "y"];
 }
