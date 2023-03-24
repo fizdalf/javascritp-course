@@ -4,6 +4,7 @@ import {createBoard} from "./createBoard.js";
 import {countDots} from "./countDots.js";
 import {nextMovement} from "./next-movement.js";
 import {canMoveInLine} from "./canMoveInLine.js";
+import {Board} from './types';
 
 async function getDimension() {
     let dimension = null;
@@ -19,49 +20,33 @@ async function getDimension() {
             ]
         );
         dimension = answer.dimension;
-    } while (isNaN(dimension) || dimension < 3 || dimension > 10);
+    } while (isNaN(dimension) || dimension < 3 || dimension > 10)
     return dimension;
 }
 
-<<<<<<< HEAD
-function isValidMovement(lineTo: number, board: any[], steps: number) {
-    let lineIndex = lineTo - 1;
-=======
-function isValidMovement(lineNumber: number, board: object[], steps: number): boolean {
+
+
+function isValidMovement(lineNumber: number, board: Board, steps: number): boolean {
     let lineIndex = lineNumber - 1;
->>>>>>> 246cfb5 (challengesº)
     const line = board[lineIndex];
     const {dotsBetween} = countDots(line);
     return steps >= 1 && steps <= dotsBetween;
 }
 
-<<<<<<< HEAD
-async function getSteps(player: string, line: number, board: any[]) {
-    let steps;
-=======
-async function getSteps(player: string, lineNumber: number, board: object): Promise<number> {
+async function getSteps(player: string, lineNumber: number, board: Board): Promise<number> {
     let steps: number;
->>>>>>> 246cfb5 (challengesº)
     do {
         const answer = await inquirer.prompt(
             [
                 {
                     type: 'number',
                     name: 'steps',
-<<<<<<< HEAD
-                    message: `Player ${player === 'player1' ? "x" : 'y'}, how many steps to move in line ${line}`,
-=======
                     message: `Player ${player === 'player1' ? "x" : 'y'}, how many steps to move in line ${lineNumber}`,
->>>>>>> 246cfb5 (challengesº)
                 }
             ]
         );
         steps = answer.steps;
-<<<<<<< HEAD
-    } while (isNaN(steps) || !isValidMovement(line, board, steps));
-=======
     } while (isNaN(steps) || !isValidMovement(lineNumber, board, steps));
->>>>>>> 246cfb5 (challengesº)
     return steps;
 }
 
@@ -71,11 +56,7 @@ const main = async () => {
     console.clear();
     console.log(`the dimension of the board is ${dimension}x${dimension} `);
 
-<<<<<<< HEAD
-    let board = createBoard(dimension);
-=======
-    let board: ("x" | "y" | ".")[][] = createBoard(dimension);
->>>>>>> 246cfb5 (challengesº)
+    let board: Board = createBoard(dimension);
     let lineNumber = 1;
     let player = "player1";
 
@@ -93,11 +74,7 @@ const main = async () => {
     console.log(`Player ${player === 'player1' ? "x" : 'y'} has lost!`);
 }
 
-<<<<<<< HEAD
-function printBoard(board: string | any[]) {
-=======
-function printBoard(board: ("x" | "y" | ".")[][]) {
->>>>>>> 246cfb5 (challengesº)
+function printBoard(board: Board) {
     console.log(stringifyBoard(board));
 }
 

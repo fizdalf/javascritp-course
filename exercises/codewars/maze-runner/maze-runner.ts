@@ -76,6 +76,9 @@ export function mazeRunner(maze: number[][], directions: string[]): string {
 
 export function findStartingPoint(maze: number[][]): { horizontalPosition: number, verticalPosition: number } {
     let i = [[]];
+    let horitzontalPosition = "";
+    let verticalPosition = "";
+    let result = "";
     for (let i = 0 ; i !== MazeRoom.StartingPoint; i++) {
         result += horitzontalPosition;
         result += verticalPosition;
