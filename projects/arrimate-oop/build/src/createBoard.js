@@ -9,7 +9,7 @@ function createBoard(dimension) {
 }
 exports.createBoard = createBoard;
 function giveMeLine(numberOfLine) {
-    const dots = new Array(numberOfLine - 2).fill('.');
-    return new Line_1.Line(["x", ...dots, "y"]);
+    const dots = new Array(numberOfLine - 2).fill(Line_1.CellType.EmptySpace);
+    return new Line_1.Line([Line_1.CellType.Player1, ...dots, Line_1.CellType.Player2]);
 }
 //# sourceMappingURL=createBoard.js.map

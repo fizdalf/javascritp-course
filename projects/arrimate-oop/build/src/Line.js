@@ -1,13 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Line = void 0;
+exports.Line = exports.CellType = void 0;
+var CellType;
+(function (CellType) {
+    CellType["Player1"] = "x";
+    CellType["Player2"] = "y";
+    CellType["EmptySpace"] = ".";
+})(CellType = exports.CellType || (exports.CellType = {}));
 class Line {
     constructor(cells) {
-        this._cells = [];
         this._cells = cells;
     }
     get cells() {
-        return this._cells;
+        return [...this._cells];
     }
     getChangedLine(player, steps) {
         const { dotsBefore: initialDotsBefore, dotsBetween: initialDotsBetween, dotsAfter: initialDotsAfter } = this.countDots();
@@ -33,13 +38,13 @@ class Line {
         let seenXAlready = false;
         let seenYAlready = false;
         for (let i = 0; i < this._cells.length; i++) {
-            if (this._cells[i] === "x") {
+            if (this._cells[i] === CellType.Player1) {
                 seenXAlready = true;
             }
-            if (this._cells[i] === "y") {
+            if (this._cells[i] === CellType.Player2) {
                 seenYAlready = true;
             }
-            if (this._cells[i] === ".") {
+            if (this._cells[i] === CellType.EmptySpace) {
                 if (!seenXAlready) {
                     dotsBeforeX++;
                     continue;
@@ -65,9 +70,9 @@ class Line {
     getLine({ dotsAfter, dotsBefore, dotsBetween }) {
         return new Line([
             ...this.giveMeDots(dotsBefore),
-            "x",
+            CellType.Player1,
             ...this.giveMeDots(dotsBetween),
-            "y",
+            CellType.Player2,
             ...this.giveMeDots(dotsAfter)
         ]);
     }

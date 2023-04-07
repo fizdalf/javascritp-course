@@ -1,7 +1,12 @@
+export declare enum CellType {
+    Player1 = "x",
+    Player2 = "y",
+    EmptySpace = "."
+}
 export declare class Line {
-    private _cells;
-    constructor(cells: ('x' | 'y' | '.')[]);
-    get cells(): ("x" | "y" | ".")[];
+    private readonly _cells;
+    constructor(cells: CellType[]);
+    get cells(): CellType[];
     getChangedLine(player: string, steps: number): Line;
     private countDots;
     private ensurePlayerCanMove;

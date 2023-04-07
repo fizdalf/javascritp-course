@@ -1,12 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Board = void 0;
+const Line_1 = require("./Line");
 class Board {
     constructor(lines) {
         this._lines = lines;
     }
     get lines() {
-        return this._lines;
+        return [...this._lines.map(x => new Line_1.Line(x.cells))];
     }
     nextMovement(player, lineNumber, steps) {
         this.ensureLineValueIsValid(lineNumber);
