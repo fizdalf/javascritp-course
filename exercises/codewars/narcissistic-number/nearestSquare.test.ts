@@ -13,10 +13,10 @@ describe('nearestSq',()=>{
         expect(nearestSq(4)).toBe(4)
     });
     it('should return 4 when given 5', function () {
-        expect(nearestSq(4)).toBe(4)
+        expect(nearestSq(5)).toBe(4)
     });
     it('should return 4 when given 6', function () {
-        expect(nearestSq(6)).toBe(9)
+        expect(nearestSq(6)).toBe(4)
     });
     it('should return 9 when given 7', function () {
         expect(nearestSq(7)).toBe(9)
@@ -30,6 +30,10 @@ describe('nearestSq',()=>{
     it('should return 16 when given 19', function () {
         expect(nearestSq(19)).toBe(16)
     });
+    it('should return 25 when given 21', function () {
+        expect(nearestSq(21)).toBe(25)
+    });
+
 
 
 

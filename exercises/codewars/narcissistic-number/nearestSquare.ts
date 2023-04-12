@@ -1,30 +1,50 @@
 export function nearestSq(n: number): number {
-    let counterDown = 0;
-    let counterUp = 0;
-    let paAbajo = n;
-    let paArriba = n
-    if (Math.sqrt(n) % 1 === 0) {
+    let firstLimit = 3;
+    let secondLimit = 6
+    let result =0;
 
-        return n;
-        if (Math.sqrt(n) % 1 != 0) {
+    if (Math.sqrt(n) %1 !=0) {
+        for (let i = 0; i < n; i++ ) {
+              result = i**2;
+              
 
+        }
 
-
-
-    while (Math.sqrt(paAbajo) % 1 != 0) {
-        counterDown++
-        paAbajo--
-    }
-    while (Math.sqrt(paArriba) % 1 != 0) {
-        counterUp++
-        paArriba++
-    }
-    if (n - counterDown > n - counterUp){
-        return paArriba;
-    }else{
-        return paAbajo
     }
 
 
-}
+
+    // if (n <= 2) {
+    //     return 1;
+    // }
+    //
+    //
+    // if (n >= firstLimit && n <= secondLimit) {
+    //     return result;
+    // }
+    // firstLimit = 7
+    // secondLimit = 12
+    // result = 9;
+    // if (n >= firstLimit && n <= secondLimit) {
+    //
+    //     return result
+    // }
+    // firstLimit = 13
+    // secondLimit = 20
+    // result = 16;
+    // if (n >= firstLimit && n <= secondLimit) {
+    //
+    //     return result
+    // }
+    // firstLimit = 21
+    // secondLimit = 30
+    // result = 25;
+    //
+    // if (n >= firstLimit && n <= secondLimit) {
+    //
+    //     return result
+    // }
+
+
+    return n;
 }
