@@ -75,23 +75,23 @@ export function mazeRunner(maze: number[][], directions: string[]): string {
 }
 
 export function findStartingPoint(maze: number[][]): { horizontalPosition: number, verticalPosition: number } {
-    let i = [[]];
-    let horitzontalPosition = "";
-    let verticalPosition = "";
-    let result = "";
-    for (let i = 0 ; i !== MazeRoom.StartingPoint; i++) {
-        result += horitzontalPosition;
-        result += verticalPosition;
-
-    }
-    return result horitzontalPosition, verticalPosition;
-
-    if(maze.length >=2) {
-        return {
-            verticalPosition: 1, horizontalPosition: 0
+        for (let rowIndex = 0; rowIndex < maze.length; rowIndex++) {
+            for (let columnIndex = 0; columnIndex < maze[rowIndex].length; columnIndex++) {
+                if (maze[rowIndex][columnIndex] === MazeRoom.StartingPoint) {
+                    return { horizontalPosition: columnIndex, verticalPosition: rowIndex };
+                }
+            }
         }
-    }
-    return {
-        verticalPosition: 0, horizontalPosition: 0
-    };
-};
+        const result = maze.reduce((acc, row,rowIndex) => {
+             const columnIndex =  row.findIndex((mazeRoom) => mazeRoom === MazeRoom.StartingPoint)
+            if(columnIndex > -1){
+                return {horizontalPosition: columnIndex, verticalPosition: rowIndex}
+            }
+            return acc;
+        }, {horizontalPosition: -1, verticalPosition: -1})
+
+        if(result.horizontalPosition === -1 || result.verticalPosition === -1){
+            throw new Error("Starting point not found!");
+        }
+        return result;
+}
