@@ -1,6 +1,13 @@
 
 import {gooseFilter} from "./fillter";
 describe('gooseFilter',()=> {
+    it('should return an empty array when given an empty array', () => {
+        expect(gooseFilter([])).toStrictEqual([]);
+    });
+    it('should return an array without "African" when given an array with "African" geese', () => {
+        expect(gooseFilter(["African", "Mallard"])).toStrictEqual(["Mallard"]);
+    });
+
     it('should return array of string  when given some birds', () => {
         expect(gooseFilter(["Mallard", "Hook Bill", "African", "Crested", "Pilgrim", "Pilgrim", "Pilgrim","Toulouse", "Blue Swedish"])).toStrictEqual(["Mallard", "Hook Bill", "Crested",  "Toulouse", "Blue Swedish"])
     });
