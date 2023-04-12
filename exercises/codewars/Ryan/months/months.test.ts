@@ -1,5 +1,4 @@
 import {months} from "./months";
-import {stringifyBoard} from "../../../../projects/arrimate-tipo/stringify-board";
 
 describe('months', function () {
     it('should return 1 when asked for the month 2, february', function () {
