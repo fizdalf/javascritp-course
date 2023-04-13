@@ -9,4 +9,4 @@ describe('filterOutOfTheGeese', ()=> {
         expect(filterOutOfTheGeese(["Mallard", "African", "Hook Bill", "Crested", "Blue Swedish"]))
             .toStrictEqual(["Mallard", "Hook Bill", "Crested", "Blue Swedish"]);
     });
-})
+});
