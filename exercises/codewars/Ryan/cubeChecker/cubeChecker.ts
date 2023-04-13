@@ -4,3 +4,4 @@ export function cubeChecker(volume: number, side: number): boolean {
     }
     return false;
 }
+// me enseñas a usar la funcion en la terminal porfi
