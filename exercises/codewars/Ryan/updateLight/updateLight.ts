@@ -1,12 +1,16 @@
 export function updateLight(current: string) :string {
-    if (current === 'yellow') {
-        return 'red';
+   const one = 'green';
+   const two = 'yellow';
+   const three = 'red';
+
+    if (current === one) {
+        return two;
     }
-    if (current === 'green') {
-        return 'yellow';
+    if (current === two) {
+        return three;
     }
-   if (current === 'red') {
-       return 'green';
+   if (current === three) {
+       return one;
    }
    return 'wrong';
 }
