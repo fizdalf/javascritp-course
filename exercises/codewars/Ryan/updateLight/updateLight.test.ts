@@ -7,4 +7,7 @@ describe('updateLight', function () {
     it('should return yellow when given green', function () {
         expect(updateLight('green')).toStrictEqual('yellow');
     });
+    it('should return red when given yellow', function () {
+        expect(updateLight('yellow')).toStrictEqual('red');
+    });
 })
