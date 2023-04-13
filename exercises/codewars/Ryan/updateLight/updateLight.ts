@@ -5,5 +5,8 @@ export function updateLight(current: string) :string {
     if (current === 'green') {
         return 'yellow';
     }
-    return 'green';
+   if (current === 'red') {
+       return 'green';
+   }
+   return 'wrong';
 }
