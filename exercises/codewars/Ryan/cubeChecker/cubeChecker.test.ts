@@ -12,4 +12,7 @@ describe('cubeChecker', function () {
     it('should return false when volume 451 and side 1', function () {
         expect(cubeChecker(451,1)).toBe(false);
     });
+    it('should return true when volume 8 and side 2', function () {
+        expect(cubeChecker(8,2)).toBe(true);
+    });
 });
