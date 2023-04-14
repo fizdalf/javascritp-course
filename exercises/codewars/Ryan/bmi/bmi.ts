@@ -9,5 +9,8 @@ export function bmi(wight: number, height: number): string {
     if (bmiX <= 25 && bmiX > 18.5) {
         return 'Normal';
     }
-    return 'Underweight';
+    if (bmiX < 18.5) {
+        return 'Underweight';
+    }
+    throw new Error("The method or operation is not implemented.");
 }
