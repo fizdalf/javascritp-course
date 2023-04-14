@@ -13,4 +13,7 @@ describe('bmi', function () {
     it('should return "Obese" if bmi > 30', function () {
         expect(bmi(130, 1.8)).toBe('Obese');
     });
+    it('should return "Obese" if bmi > 30 changing height', function () {
+        expect(bmi(130, 1)).toBe('Obese');
+    });
 });
