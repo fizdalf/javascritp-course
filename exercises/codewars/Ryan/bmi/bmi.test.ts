@@ -7,4 +7,7 @@ describe('bmi', function () {
     it('should return "Normal" if bmi <= 25', function () {
         expect(bmi(60, 1.8)).toBe('Normal');
     });
+    it('should return "Overweight" if bmi <= 30', function () {
+        expect(bmi(90, 1.8)).toBe('Overweight');
+    });
 });
