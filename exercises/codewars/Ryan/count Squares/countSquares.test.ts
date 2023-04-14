@@ -7,4 +7,7 @@ describe('countSquares', () => {
     it('should return 98 when given 4 cuts', function () {
         expect(countSquares(4)).toBe(98);
     });
+    it('should return 98 when given 5 cuts', function () {
+        expect(countSquares(5)).toBe(152);
+    });
 })
