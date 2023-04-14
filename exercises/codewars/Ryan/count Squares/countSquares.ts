@@ -1,9 +1,4 @@
 export function countSquares(cuts: number): number {
-    if (cuts === 5) {
-        return 152;
-    }
-    if (cuts === 4) {
-        return 98;
-    }
-    return 26;
-}
+    const squares = (cuts * 6) * cuts + 2;
+    return squares;
+};
