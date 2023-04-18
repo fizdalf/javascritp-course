@@ -1,10 +1,12 @@
 export function sortMyString(S: string): string {
-    if ( S === 'si'){
-        return 'is'
+    let even = '';
+    let odd = '';
+    for (let i = 0; i < S.length; i++) {
+        if (i % 2 === 0) {
+            even += S[i];
+        } else {
+            odd += S[i];
+        }
     }
-    if ( S === 'sio'){
-        return 'ois'
-    }
-
-    return 's' ;
+    return even + ' ' + odd;
 }
