@@ -1,27 +1,19 @@
-export function gooseFilter(birds:any): any {
-    let geese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
-    let geeseFinder;
-    for (let i = 0; i < birds.length; i++) {
-        geeseFinder = birds[i]
+const unwantedGeese = ["African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher"];
 
-        if (geeseFinder === "African"){
-            birds= birds.filter((animal: string) => animal != "African");
+function isUnwantedGoose(goose: string): boolean {
+    for (let i = 0; i < unwantedGeese.length ; i++) {
+        const unwantedGoose = unwantedGeese[i];
+        if(unwantedGoose === goose){
+            return  true;
         }
-        if (geeseFinder === "Roman Tufted"){
-            birds= birds.filter((animal: string) => animal != "Roman Tufted");
-        }
-        if (geeseFinder === "Toulouse"){
-            birds= birds.filter((animal: string) => animal != "Toulouse");
-        }
-        if (geeseFinder === "Pilgrim"){
-            birds= birds.filter((animal: string) => animal != "Pilgrim");
-        }
-        if (geeseFinder === "Steinbacher"){
-            birds= birds.filter((animal: string) => animal != "Steinbacher");
-
-        }
-
-
     }
-    return birds;
+    return false;
+}
+
+
+export function gooseFilter(birds: any): any {
+    return birds.filter((goose: string) => {
+        let b = isUnwantedGoose(goose);
+        return !b;
+    });
 }

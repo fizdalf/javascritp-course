@@ -6,13 +6,13 @@ describe('mango',()=>{
     it('should return 2 euro when given 2 mango',()=>{
         expect(mango(2,1)).toBe(2)
     })
-    it('should return 3 euro when given 3 mango',()=>{
+    it('should return 2 euro when given 3 mango',()=>{
         expect(mango(3,1)).toBe(2)
     })
     it('should return 3 euro when given 4 mango',()=>{
         expect(mango(4,1)).toBe(3)
     })
-    it('should return 2 euro when given 1 mango',()=>{
+    it('should return 2 euro when given 1 mango and price is 2 euros',()=>{
         expect(mango(1,2)).toBe(2)
     })
     it('should return 4 euro when given 5 mango',()=>{
