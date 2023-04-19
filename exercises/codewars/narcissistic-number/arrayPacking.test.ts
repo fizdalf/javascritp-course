@@ -1,15 +1,17 @@
 import {arrayPacking} from "./arrayPacking";
-describe('arrayPacking', function (){
-    // it('should return 10 when given [2]', function () {
-    //     expect(arrayPacking([2])).toBe(10)
-    // });
-    // it('should return 11 when given [3]', function () {
-    //     expect(arrayPacking([3])).toBe(11)
-    // });
-    // it('should return 11110 when given [30]', function () {
-    //     expect(arrayPacking([30])).toBe(11110)
-    // });
-    it('should return 11110 when given [30]', function () {
-        expect(arrayPacking([24, 32, 5])).toBe(11110)
+
+describe('arrayPacking', function () {
+    it('should return a 0 when given [0]', function () {
+        expect(arrayPacking([0])).toBe(0);
     });
 })
+
+
+/**
+ *
+ *     [0, 1]  -> [ 00000000, 00000001 ] -> 00000001 00000000 -> 256
+ *     [0, 2]  -> [ 00000000, 00000010 ] -> 00000010 00000000 -> 512
+ *     [0, 2]  -> [ 00000000, 00000011 ] -> 00000011 00000000 -> 768
+ *
+ *
+ */
