@@ -10,7 +10,6 @@ function isUnwantedGoose(goose: string): boolean {
     return false;
 }
 
-
 export function gooseFilter(birds: any): any {
     return birds.filter((goose: string) => {
         let b = isUnwantedGoose(goose);
